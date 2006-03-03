@@ -1,5 +1,6 @@
 #! /usr/local/bin/python
 
+import sys
 from glob import glob
 import fnmatch
 
@@ -23,14 +24,22 @@ def withheld(number, title):
         Psalm %s <i style='mso-bidi-font-style:normal'>%s</i>%s</span></p>\n"""
     return html % ((number,) + titleSplit(title))
 
+def checkHtmExists(name):
+    if not glob(name+'.htm'):
+        print >>sys.stderr, 'Warning: no .htm file matching %s.sib' % name
+        return False
+    return True
+
 def part(name, part):
-    html = """ <a href="%s_%s.htm">%s</a>"""
+    html = """ <a href="%s.htm">%s</a>"""
 
     basename = (name+' ').split(' ')[0]
     basename = basename.split('_')[0]
 
-    if glob('%s_%s.sib' % (basename, part)):
-        return html % (basename, part, part)
+    partname = basename.replace('Songs/', 'Songs/parts/') + '_' + part
+    if glob(partname+'.sib'):
+        checkHtmExists(partname)
+        return html % (partname, part)
     return ''
 
 def view(name, number, title):
@@ -38,6 +47,7 @@ def view(name, number, title):
         href="%s">view/play</a><span style='mso-tab-count:1'> %s %s %s %s%s""" + '\xa0'*2 + """ </span>
         Psalm %s <i style='mso-bidi-font-style:normal'>%s</i>%s</span></p>\n"""
 
+    checkHtmExists(name)
     link = (name+'.htm').replace(' ', '%20')
     satb = tuple( map(part, [name]*4, 'SATB') )
     spaces = 4 - sum( [l!='' for l in satb] )
