@@ -18,15 +18,19 @@ def coming(number, title=''):
         Psalm %s <i style='mso-bidi-font-style:normal'>%s</i>%s</span></p>\n"""
     return html % ((number,) + titleSplit(title))
 
-def withheld(number, title):
+def withheld(name, number, title):
     html = """<p class=MsoNormal style='tab-stops:3.0cm right 219.75pt'><span lang=EN-AU><a
-        href="Withheld.htm">withheld</a><span style='mso-tab-count:1'>""" + '\xa0'*19 + """ </span>
+        href="Withheld.htm">withheld</a><span style='mso-tab-count:1'> \xa0%s %s %s %s%s\xa0\xa0 </span>
         Psalm %s <i style='mso-bidi-font-style:normal'>%s</i>%s</span></p>\n"""
-    return html % ((number,) + titleSplit(title))
+
+    satb = tuple( map(part, [name]*4, 'SATB') )
+    spaces = 4 - sum( [l!='' for l in satb] )
+    spaces = '\xa0' * int(spaces * 3.6)
+
+    return html % (satb + (spaces, number) + titleSplit(title))
 
 def checkHtmExists(name):
     if not glob(name+'.htm'):
-        print >>sys.stderr, 'Warning: no .htm file matching %s.sib' % name
         return False
     return True
 
@@ -36,11 +40,19 @@ def part(name, part):
     basename = (name+' ').split(' ')[0]
     basename = basename.split('_')[0]
 
-    partname = basename.replace('Songs/', 'Songs/parts/') + '_' + part
-    if glob(partname+'.sib'):
-        checkHtmExists(partname)
-        return html % (partname, part)
-    return ''
+    partPattern = basename.replace('Songs/', 'Songs/parts/') + ('[_ ]*%s.sib' % part)
+    partnames = glob(partPattern)
+
+    if len(partnames) > 1:
+        print >>sys.stderr, 'Warning: Using first of too many parts matching %s: %s' % (basename, partnames)
+    if not partnames:
+        return ''
+    partname = partnames[0].replace('.sib', '').replace('\\', '/')
+    if not checkHtmExists(partname):
+        print >>sys.stderr, 'Warning: skipped file: no .htm file matching %s.sib' % partname
+        return ''
+
+    return html % (partname, part)
 
 def view(name, number, title):
     html = """<p class=MsoNormal style='tab-stops:3.0cm right 219.75pt'><span lang=EN-AU><a
@@ -73,7 +85,7 @@ def psalm(n):
         if filename.endswith('.coming'):
             output += coming(number, title)
         elif filename.endswith('.withheld'):
-            output += withheld(number, title)
+            output += withheld(name, number, title)
         else:
             if filename + '.withheld' not in songs:
                 output += view(name, number, title)
