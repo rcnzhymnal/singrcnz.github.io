@@ -1,5 +1,7 @@
 #! /usr/local/bin/python
 
+"""See Songs\0Readme.txt for the .sib file naming requirements"""
+
 import sys
 from glob import glob
 import fnmatch
