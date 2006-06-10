@@ -18,6 +18,12 @@ def coming(number, title=''):
         Psalm %s <i style='mso-bidi-font-style:normal'>%s</i>%s</span></p>\n"""
     return html % ((number,) + titleSplit(title))
 
+def proofing(number, title=''):
+    html = """<p class=MsoNormal style='tab-stops:3.0cm right 219.75pt'><span lang=EN-AU>proofing<span
+        style='mso-tab-count:1'>""" + '\xa0'*17 + """</span>
+        Psalm %s <i style='mso-bidi-font-style:normal'>%s</i>%s</span></p>\n"""
+    return html % ((number,) + titleSplit(title))
+
 def withheld(name, number, title):
     html = """<p class=MsoNormal style='tab-stops:3.0cm right 219.75pt'><span lang=EN-AU><a
         href="Withheld.htm">withheld</a><span style='mso-tab-count:1'> \xa0%s %s %s %s%s\xa0\xa0 </span>
@@ -52,6 +58,7 @@ def part(name, part):
         print >>sys.stderr, 'Warning: skipped file: no .htm file matching %s.sib' % partname
         return ''
 
+    partname = partname.replace(' ', '%20').replace(';', '%3b')
     return html % (partname, part)
 
 def view(name, number, title):
@@ -60,7 +67,7 @@ def view(name, number, title):
         Psalm %s <i style='mso-bidi-font-style:normal'>%s</i>%s</span></p>\n"""
 
     checkHtmExists(name)
-    link = (name+'.htm').replace(' ', '%20')
+    link = (name+'.htm').replace(' ', '%20').replace(';', '%3b')
     satb = tuple( map(part, [name]*4, 'SATB') )
     spaces = 4 - sum( [l!='' for l in satb] )
     spaces = '\xa0' * int(spaces * 3.6)
@@ -86,9 +93,13 @@ def psalm(n):
             output += coming(number, title)
         elif filename.endswith('.withheld'):
             output += withheld(name, number, title)
-        else:
-            if filename + '.withheld' not in songs:
+        elif filename.endswith('.proofed'):
+            if filename.replace('.proofed', '.withheld') not in songs:
                 output += view(name, number, title)
+        else:
+            if filename + '.proofed' not in songs and \
+               filename + '.withheld' not in songs:
+                output += proofing(number, title)
 
     return output
 
