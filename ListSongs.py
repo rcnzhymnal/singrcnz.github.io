@@ -22,7 +22,7 @@ def coming(number, title=''):
 
 def proofing(number, title=''):
     html = """<p class=MsoNormal style='tab-stops:3.0cm right 219.75pt'><span lang=EN-AU>proofing<span
-        style='mso-tab-count:1'>""" + '\xa0'*17 + """</span>
+        style='mso-tab-count:1'>""" + '\xa0'*19 + """</span>
         Psalm %s <i style='mso-bidi-font-style:normal'>%s</i>%s</span></p>\n"""
     return html % ((number,) + titleSplit(title))
 
@@ -92,6 +92,8 @@ def psalm(n):
         number = number.lstrip('0')
 
         if filename.endswith('.coming'):
+            if filename.replace('.coming', '') in songs:
+                print 'Warning: %s is marked as coming but there is a matching .sib file.' % filename
             output += coming(number, title)
         elif filename.endswith('.withheld'):
             output += withheld(name, number, title)
