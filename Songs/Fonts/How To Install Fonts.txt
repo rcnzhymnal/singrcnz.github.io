@@ -1,0 +1,12 @@
+Download all the files in this folder from the SVN repository.
+
+When your web browser asks you where to save each file, tell it to save it in
+C:\WINDOWS\Fonts
+
+OTHERWISE, if your web browser doesn't ask you where to save each file:
+
+This means it's configured to save them in a default location. If you know
+what this location is, then go there, and copy the files over to C:\WINDOWS\Fonts.
+If you don't know what the location is, then it's probably your desktop, or else
+"My Documents". Find the files in one of those places, and copy them over to
+C:\WINDOWS\Fonts
