@@ -20,11 +20,16 @@ def coming(number, title=''):
         Psalm %s <i style='mso-bidi-font-style:normal'>%s</i>%s</span></p>\n"""
     return html % ((number,) + titleSplit(title))
 
-def proofing(number, title=''):
+def proofing(name, number, title=''):
     html = """<p class=MsoNormal style='tab-stops:3.0cm right 219.75pt'><span lang=EN-AU>proofing<span
-        style='mso-tab-count:1'>""" + '\xa0'*19 + """</span>
+        style='mso-tab-count:1'> \xa0%s %s %s %s%s\xa0\xa0 </span>
         Psalm %s <i style='mso-bidi-font-style:normal'>%s</i>%s</span></p>\n"""
-    return html % ((number,) + titleSplit(title))
+
+    satb = tuple( map(part, [name]*4, 'SATB') )
+    spaces = 4 - sum( [l!='' for l in satb] )
+    spaces = '\xa0' * int(spaces * 3.6)
+
+    return html % (satb + (spaces, number) + titleSplit(title))
 
 def withheld(name, number, title):
     html = """<p class=MsoNormal style='tab-stops:3.0cm right 219.75pt'><span lang=EN-AU><a
@@ -103,7 +108,7 @@ def psalm(n):
         else:
             if filename + '.proofed' not in songs and \
                filename + '.withheld' not in songs:
-                output += proofing(number, title)
+                output += proofing(name, number, title)
 
     return output
 
