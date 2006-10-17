@@ -44,6 +44,7 @@ def withheld(name, number, title):
 
 def checkHtmExists(name):
     if not glob(name+'.htm'):
+        print >>sys.stderr, 'Warning: %s.sib has no .htm' % name
         return False
     return True
 
@@ -98,7 +99,7 @@ def psalm(n):
 
         if filename.endswith('.coming'):
             if filename.replace('.coming', '') in songs:
-                print 'Warning: %s is marked as coming but there is a matching .sib file.' % filename
+                print >>sys.stderr, 'Warning: %s file has no .sib' % filename
             output += coming(number, title)
         elif filename.endswith('.withheld'):
             output += withheld(name, number, title)
