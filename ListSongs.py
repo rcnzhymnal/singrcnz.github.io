@@ -7,6 +7,7 @@ from glob import glob
 import fnmatch
 
 def titleSplit(title):
+    title = title.replace('_', ' ')
     title2 = ''
     split = title.split(';', 1)
     title1 = split[0].strip()
@@ -93,7 +94,7 @@ def psalm(n):
         name = filename.replace('\\', '/')
         name = name.split('.', 1)[0]
 
-        number, title = (name+' ').split(' ', 1)
+        number, title = (name.replace(' ', '_')+'_').split('_', 1)
         number = number.lstrip('Songs/psalm')
         number = number.lstrip('0')
 
