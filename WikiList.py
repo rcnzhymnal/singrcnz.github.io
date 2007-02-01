@@ -5,12 +5,13 @@ from glob import glob
 import fnmatch
 
 def link(song):
-    link = song.replace(' ', '%20').replace(';', '%3b')
+    link = song.replace(' ', '_').replace(';', '%3b')
     return 'http://hymnal.ws/public/Songs/%s.htm' % link
 
 def listPsalms(dest, filename):
     print >>sys.stderr, 'Working on "%s"' % filename
     song = os.path.basename(filename).replace('.htm', '')
+    song = song.replace('_', ' ')
     if song.lower().startswith('psalm'):
         num = song[5:].split()[0]
         num = str(int(num[0:3])) + num[3:]
@@ -19,7 +20,7 @@ def listPsalms(dest, filename):
     else:
         print >>dest, song,
     print >>dest, '- [%s view]' % link(song)
-    print >>dest, ' * '
+    print >>dest, ' * -'
     print >>dest
 
 def main():
