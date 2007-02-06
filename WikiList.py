@@ -24,13 +24,18 @@ def listPsalms(dest, filename):
     print >>dest
 
 def main():
-    if not sys.argv[1:]:
+    argv = sys.argv
+
+    if not sys.stdin.isatty():
+        argv += sys.stdin.read().split()
+
+    if not argv[1:]:
         print 'Usage: WikiList.py <list-htm-files>'
         print 'Wildcards are allowed'
         sys.exit(1)
 
     dest = sys.stdout
-    for arg in sys.argv[1:]:
+    for arg in argv[1:]:
         for filename in glob(arg):
             listPsalms(dest, filename)
     dest.close()
