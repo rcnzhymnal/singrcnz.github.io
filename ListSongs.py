@@ -6,6 +6,8 @@ import sys
 from glob import glob
 import fnmatch
 
+songType = None                 # set to 'psalm' or 'Hymn' before running functions below
+
 def titleSplit(title):
     title = title.replace('_', ' ')
     title2 = ''
@@ -16,32 +18,22 @@ def titleSplit(title):
     return title1, title2
 
 def coming(number, title=''):
-    html = """<p class=MsoNormal style='tab-stops:3.0cm right 219.75pt'><span lang=EN-AU>coming<span
-        style='mso-tab-count:1'>""" + '\xa0'*21 + """</span>
-        Psalm %s <i style='mso-bidi-font-style:normal'>%s</i>%s</span></p>\n"""
-    return html % ((number,) + titleSplit(title))
+    html = """<tr><td>coming</td><td></td><td>%s %s <i>%s</i>%s</td></tr>\n"""
+    return html % ((songType.capitalize(), number) + titleSplit(title))
 
 def proofing(name, number, title=''):
-    html = """<p class=MsoNormal style='tab-stops:3.0cm right 219.75pt'><span lang=EN-AU>proofing<span
-        style='mso-tab-count:1'> \xa0%s %s %s %s%s\xa0\xa0 </span>
-        Psalm %s <i style='mso-bidi-font-style:normal'>%s</i>%s</span></p>\n"""
+    html = """<tr><td>proofing</td><td>%s %s %s %s</td><td>%s %s <i>%s</i>%s</td></tr>\n"""
 
     satb = tuple( map(part, [name]*4, 'SATB') )
-    spaces = 4 - sum( [l!='' for l in satb] )
-    spaces = '\xa0' * int(spaces * 3.6)
 
-    return html % (satb + (spaces, number) + titleSplit(title))
+    return html % (satb + (songType.capitalize(), number) + titleSplit(title))
 
 def withheld(name, number, title):
-    html = """<p class=MsoNormal style='tab-stops:3.0cm right 219.75pt'><span lang=EN-AU><a
-        href="Withheld.htm">withheld</a><span style='mso-tab-count:1'> \xa0%s %s %s %s%s\xa0\xa0 </span>
-        Psalm %s <i style='mso-bidi-font-style:normal'>%s</i>%s</span></p>\n"""
+    html = """<tr><td><a href="Withheld.htm">withheld</a></td><td>%s %s %s %s</td><td>%s %s <i>%s</i>%s</td></tr>\n"""
 
     satb = tuple( map(part, [name]*4, 'SATB') )
-    spaces = 4 - sum( [l!='' for l in satb] )
-    spaces = '\xa0' * int(spaces * 3.6)
 
-    return html % (satb + (spaces, number) + titleSplit(title))
+    return html % (satb + (songType.capitalize(), number) + titleSplit(title))
 
 def checkHtmExists(name):
     if not glob(name+'.htm'):
@@ -71,31 +63,21 @@ def part(name, part):
     return html % (partname, part)
 
 def view(name, number, title):
-    html = """<p class=MsoNormal style='tab-stops:3.0cm right 219.75pt'><span lang=EN-AU><a
-        href="%s">view/play</a><span style='mso-tab-count:1'> %s %s %s %s%s""" + '\xa0'*2 + """ </span>
-        Psalm %s <i style='mso-bidi-font-style:normal'>%s</i>%s</span></p>\n"""
+    html = """<tr><td><a href="%s">view/play</a></td><td>%s %s %s %s</td><td>%s %s <i>%s</i>%s</td></tr>\n"""
 
     checkHtmExists(name)
     link = (name+'.htm').replace(' ', '%20').replace(';', '%3b')
     satb = tuple( map(part, [name]*4, 'SATB') )
-    spaces = 4 - sum( [l!='' for l in satb] )
-    spaces = '\xa0' * int(spaces * 3.6)
-    return html % ((link,) + satb + (spaces, number) + titleSplit(title))
+    return html % ((link,) + satb + (songType.capitalize(), number) + titleSplit(title))
 
-def psalm(n):
-    songs = glob('Songs/psalm%03d*.sib*' % n)
-    parts = fnmatch.filter(songs, 'Songs/psalm%03d_*.sib' % n)
-    songs = [song for song in songs if song not in parts]
-
-    if not songs:
-        return coming(n)
+def listSongs(songs):
     output = ''
     for filename in songs:
         name = filename.replace('\\', '/')
         name = name.split('.', 1)[0]
 
         number, title = (name.replace(' ', '_')+'_').split('_', 1)
-        number = number.lstrip('Songs/psalm')
+        number = number.lstrip('Songs/%s' % songType)
         number = number.lstrip('0')
 
         if filename.endswith('.coming'):
@@ -114,18 +96,51 @@ def psalm(n):
 
     return output
 
+def psalm(n):
+    songs = glob('Songs/%s%03d*.sib*' % (songType, n))
+    if not songs:
+        return coming(n)
+    return listSongs(songs)
+
 def listPsalms(dest):
+    global songType
+    songType = 'psalm'
+
     for n in range(1, 151):
         print >>dest, psalm(n)
-        if n%10==0: print >>dest, '<p></p>'
+        if n%10==0: print >>dest, '<tr><td>\xa0</td></tr>'
+
+def listHymns(dest):
+    global songType
+    songType = 'Hymn'
+
+    songs = glob('Songs/%s*.sib*' % songType)
+    songs.sort()
+
+    print >>dest, listSongs(songs)
 
 def main():
+    header = """<html><head><style type='text/css'>td {padding: 0 5}</style></head><body><table>"""
+    footer = """</table></body></html>"""
+
+    psalms = file('Psalms.htm', 'w')
+    print >>psalms, header
+    print >>psalms, "<h1>Psalms</h1>"
+    listPsalms(psalms)
+    print >>psalms, footer
+
+    hymns = file('Hymns.htm', 'w')
+    print >>hymns, header
+    print >>hymns, "<h1>Hymns</h1>"
+    print >>hymns, "<p>The only hymns listed here are ones that were associated with a psalm but we decided to put them in as a hymn.</p>"
+    listHymns(hymns)
+    print >>hymns, footer
+
     source=file('Header.htm')
     dest = file('Songs.htm', 'w')
-
     for line in source:
         if line.strip() == '</div>':
-            listPsalms(dest)
+            pass
         print >>dest, line,
 
     dest.close()
