@@ -136,16 +136,6 @@ def main():
     listHymns(hymns)
     print >>hymns, footer
 
-    source=file('Header.htm')
-    dest = file('Songs.htm', 'w')
-    for line in source:
-        if line.strip() == '</div>':
-            pass
-        print >>dest, line,
-
-    dest.close()
-    source.close()
-
 
 if __name__ == '__main__':
     main()
