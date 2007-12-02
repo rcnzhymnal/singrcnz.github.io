@@ -100,6 +100,7 @@ def psalm(n):
     songs = glob('Songs/%s%03d*.sib*' % (songType, n))
     if not songs:
         return coming(n)
+    songs.sort()
     return listSongs(songs)
 
 def listPsalms(dest):
