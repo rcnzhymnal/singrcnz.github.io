@@ -47,6 +47,9 @@ def part(name, part):
     basename = (name+' ').split(' ')[0]
     basename = basename.split('_')[0]
 
+    if '/hymn' in basename.lower():
+        basename = name
+
     partPattern = basename.replace('Songs/', 'Songs/parts/') + ('[_ ]*%s.sib' % part)
     partnames = glob(partPattern)
 
