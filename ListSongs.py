@@ -31,7 +31,7 @@ def proofing(name, number, title=''):
 def withheld(name, number, title):
     html = """<tr><td><a href="Withheld.htm">withheld</a></td><td>%s %s %s %s</td><td>%s %s <i>%s</i>%s</td></tr>\n"""
 
-    satb = tuple( map(part, [name]*4, 'SATB') )
+    satb = ('',)*4  #tuple( map(part, [name]*4, 'SATB') )
 
     return html % (satb + (songType.capitalize(), number) + titleSplit(title))
 
