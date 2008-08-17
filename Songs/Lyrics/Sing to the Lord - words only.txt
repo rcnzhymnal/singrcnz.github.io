@@ -42,7 +42,7 @@ Psalm 1b  Blessed is the man
      which the wind blows clean away, the ungodly are not so.
      The ungodly will not stand upon the judgment day
      nor belong to God’s own people, the ungodly will not stand.
-   But God knows the way of righteous men
+   But God knows the way of righteous men,
      and ungodly ways will perish.
 
    Blessed is the man, the man who does not walk
@@ -259,7 +259,7 @@ Psalm 7  O Lord my God
 7. My shield and confidence is God Most High,
      who saves the upright when to him they cry.
    God is a judge who does what’s right and fair,
-     and everyday his wrath God will declare.
+     and every day his wrath God will declare.
 
 8. If it should be that man will not repent,
      God’s sword he’ll whet, his deadly instrument,
@@ -293,7 +293,7 @@ Psalm 8  In all the earth
      I see the moon and shining stars
      which you have set in place.
    I ask myself, “What then is man
-     that you should give him thought;
+     that you should give him thought --
      the son of man, that you to him
      such gracious care have brought?”
 
