@@ -124,7 +124,10 @@ def listHymns(dest):
     print >>dest, listSongs(songs)
 
 def main():
-    header = """<html><head><style type='text/css'>td {padding: 0 5}</style></head><body><table>"""
+    header = """<html><head>
+        <link rel='stylesheet' href='main.css' type='text/css'>
+        <img src="logo.png" align='left' width='122' height='149'>
+        </head><body><table>"""
     footer = """</table></body></html>"""
 
     psalms = file('Psalms.htm', 'w')
