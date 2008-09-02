@@ -1,0 +1,51 @@
+body {
+  font-family: verdana, sans-serif;
+  margin: auto;
+  margin-top: 20px;
+  margin-left: 160px;
+  background-color: white;
+  width: 744px;
+  text-align: left;
+  font-size: 12pt;
+}
+
+p {
+  width: 744px;
+}
+
+h1 {
+  padding-top: 20px;
+}
+
+h3 {
+  font-family: "Times New Roman", times, serif;
+  font-style: italic;
+  font-weight: normal;
+  color: #651600;
+  font-size: 200%;
+}
+
+h4 {
+  font-family: "Times New Roman", times, serif;
+  font-weight: bold;
+  color: #666;
+  font-size: 130%;
+}
+
+li {
+  font-size: 0.8em;
+  margin-bottom: 7px;
+}
+
+img {
+  border: none;
+  margin: -20px 10px 10px -160px;
+}
+
+td {
+  padding: 0 5
+}
+
+#links {
+  font-size: 9pt;
+}
