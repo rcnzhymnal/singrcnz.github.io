@@ -1531,8 +1531,8 @@ Psalm 31  In you, Lord, I take refuge
 1. In you, Lord, I take refuge;
      ashamed let me not be.
      Your righteousness eternal
-     express by saving me;
-   incline your ear to hear me;
+     express by saving me.
+   Incline your ear to hear me;
      with speed deliver me.
      To me O be a strong rock,
      a fort to rescue me.
@@ -1566,7 +1566,7 @@ Psalm 31  In you, Lord, I take refuge
 
 5. To all my foes a byword,
      a dread to those near me,
-     a scorn to all my neighbors –
+     a scorn to all my neighbours –
      at sight of me they flee.
    Like dead men I’m forgotten,
      a broken jar thrown out.
