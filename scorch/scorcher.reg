@@ -1,0 +1,22 @@
+REGEDIT4
+
+[HKEY_CLASSES_ROOT\.sib]
+@="Sibelius.Score"
+
+[HKEY_CLASSES_ROOT\Sibelius.Score\shell]
+@="Open"
+
+[HKEY_CLASSES_ROOT\Sibelius.Score\shell\CreateHtm]
+
+[HKEY_CLASSES_ROOT\Sibelius.Score\shell\CreateHtm\command]
+@="\"c:\\python25\\python.exe\" \"Z:\\work\\Hymnal\\public\\scorch\\scorcher.py\" -q \"%L\""
+
+[HKEY_CLASSES_ROOT\Sibelius.Score\shell\CreateHtm on all sib files]
+
+[HKEY_CLASSES_ROOT\Sibelius.Score\shell\CreateHtm on all sib files\command]
+@="\"c:\\python25\\python.exe\" -c \"import sys; sys.argv=['', '-q','*.sib']; execfile('Z:\\work\\Hymnal\\public\\scorch\\scorcher.py'); raw_input('Press <Enter> ')"
+
+[HKEY_CLASSES_ROOT\Sibelius.Score\shell\OpenWithScorch]
+
+[HKEY_CLASSES_ROOT\Sibelius.Score\shell\OpenWithScorch\command]
+@="\"c:\\python25\\python.exe\" \"Z:\\work\\Hymnal\\public\\scorch\\scorcher.py\" \"%L\""
