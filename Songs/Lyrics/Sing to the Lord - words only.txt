@@ -4484,7 +4484,7 @@ Psalm 78  O my people, hear my teaching
    They were faithless like their fathers,
      like a faulty bow, untrue.
    Their high places stirred his ire;
-     their false gods his jealous fire.
+     their false gods, his jealous fire.
 
 23. When God heard them, he was angry;
      he abandoned Israèl.
@@ -4566,7 +4566,7 @@ Psalm 79  Lord, the nations have invaded
 3. Lord, how long?  Will your displeasure
      still run on and never tire?
      How long will your jealous anger
-     burn like all consuming fire?
+     burn like all-consuming fire?
    Pour your fury on the nations
      that refuse to seek your face;
      for they have uprooted Jacob
@@ -5043,7 +5043,7 @@ Psalm 88  Lord, you are the God who saves me
 4. In the lowest pit you cast me;
      in the darkest depths am I.
    For your wrath is heavy on me,
-     and beneath your waves I lie,
+     and beneath your waves I lie.
 
 5. Closest friends you’ve taken from me;
      loathsome to them is my plight.
@@ -5376,8 +5376,8 @@ Psalm 92  How good it is to thank the Lord
 5. The righteous all will flourish well
      and in the house of God will dwell.
      They will be planted like a tree,
-     will still in old age fruitful be,
-   the Lord our God is upright, just;
+     will still in old age fruitful be.
+   The Lord our God is upright, just;
      he is my rock; in him I trust.
 
 
@@ -5399,7 +5399,7 @@ Psalm 93  Jehovah sits enthroned
      above the raging sea.
 
 4. Thy testimonies, Lord,
-     in faithfulness record,
+     in faithfulness excel,
    and holy must thy servant be
      who in thy temple dwell.
 
