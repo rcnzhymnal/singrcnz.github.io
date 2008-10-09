@@ -79,7 +79,7 @@ class Song(object):
         self.folder = folder
         filename = glob(os.path.join(self.folder, '*%s.sib') % name)[0]
         self.file = os.path.split(filename)[1].rsplit('.', 1)[0]
-        
+
         self.type = ''
         for t in Types:
             if self.file.startswith(t): self.type = t
@@ -107,7 +107,7 @@ class Song(object):
             dot = filename2name(dot, folder)
             if dot not in songs: songs += [dot]
         return [ Song(song) for song in songs ]
-        
+
     def checkfile(self, ext):
         """ Check that the file of type 'ext' corresponding to this song exists
         """
@@ -132,10 +132,10 @@ class Song(object):
 class output:
     # (link, X)
     satb = """<a href="%s.htm">%s</a>&nbsp;"""
-           
+
     # (link, clickme, SATB, typ, num, title)
     viewable = """<tr><td><a href="%s.htm">%s</a></td><td>%s</td><td><b>%s %s</b>&nbsp;&nbsp;<i>%s</i></td></tr>\n"""
-                
+
     hymntext = "<h1>Hymns</h1>\n<p>The only hymns listed here are ones that were associated with a psalm but we decided to put them in as a hymn.</p>"
     psalmtext = "<h1>Psalms</h1>"
 
@@ -181,7 +181,7 @@ class output:
 <ul>
 <li class="background5"><a href="http://rcnz.org.nz">RCNZ Homepage</a></li>
 
-<li class="background5"><a href="http://hymnal.ws/trac">Login</a></li>
+<li class="background5"><a href="http://hymnal.ws/trac">Committee Login</a></li>
 
 </ul>
 
@@ -214,7 +214,7 @@ class output:
 <div class="container"><a href="Psalms.htm">Browse psalms</a><a href="Hymns.htm">Browse hymns</a></div>
 </div>
 """
-    
+
     # ()
     footer = """</div>
 </div></body>
@@ -227,14 +227,14 @@ class output:
             f = song.partfile(p)
             if f: satb += cls.satb % (urljoin(path2url(Partsdir), f), p)
         return satb
-    
+
 
     @classmethod
     def listing(cls, song):
         parts = cls.parts(song)
         link = urljoin(path2url(Songdir), song.file)
         clickme = 'view/play'
-        
+
         if 'coming' in song.stats:
             parts = ''
             link = 'Coming'
@@ -247,7 +247,7 @@ class output:
             parts = ''
             link = 'Proofing'
             clickme = 'proofing'
-        
+
         return cls.viewable % (link, clickme, parts, song.type.capitalize(), song.num.lstrip('0'), song.title)
 
     @classmethod
