@@ -1,12 +1,5 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<html>
-<head>
- <link rel='stylesheet' href='main.css' type='text/css'>
- <img src="logo.png" align='left' width='122' height='149'>
-</head>
-<body>
 
-<h1>Name of the Psalter Hymnal</h1>
+<h2>Name of the Psalter Hymnal</h2>
 
 <p>You will recall that we solicited your opinions on names for our new
 hymnal. In the end we chose <i>Sing to the Lord (provisional)</i> for
@@ -24,4 +17,3 @@ this name for the final hymnal. Your feedback is welcome.
 <li>Psalms and Hymns - Andrew and Lydia Nugteren</li>
 </ul>
 
-</body></html>

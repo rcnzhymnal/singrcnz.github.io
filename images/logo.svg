@@ -113,16 +113,16 @@
      objecttolerance="10"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.98994949"
-     inkscape:cx="320.45069"
-     inkscape:cy="760.07195"
+     inkscape:zoom="1"
+     inkscape:cx="286.41964"
+     inkscape:cy="252.09474"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
-     inkscape:window-width="1280"
+     inkscape:window-width="1033"
      inkscape:window-height="744"
-     inkscape:window-x="-4"
-     inkscape:window-y="-4" />
+     inkscape:window-x="323"
+     inkscape:window-y="97" />
   <metadata
      id="metadata7">
     <rdf:RDF>
@@ -145,10 +145,10 @@
        height="273"
        width="252"
        sodipodi:absref="Z:\work\brush\graphics\inkscape_pasted_image_20080902_120920.png"
-       xlink:href="Z:\work\brush\graphics\inkscape_pasted_image_20080902_120920.png"
        inkscape:export-filename="C:\Documents and Settings\berwyn\Desktop\logo.png"
        inkscape:export-xdpi="150"
-       inkscape:export-ydpi="150" />
+       inkscape:export-ydpi="150"
+       xlink:href="ape_pasted_image_20080902_120920.png" />
     <path
        sodipodi:type="arc"
        style="opacity:1;fill:url(#radialGradient6080);fill-opacity:1;fill-rule:evenodd;stroke:none"
@@ -161,6 +161,38 @@
        transform="matrix(2.6855346,0,0,3.1707316,-283.16673,-819.9704)"
        inkscape:export-xdpi="150"
        inkscape:export-ydpi="150"
-       inkscape:export-filename="C:\Documents and Settings\berwyn\Desktop\logo.png" />
+       inkscape:export-filename="C:\Documents and Settings\berwyn\Desktop\logo.png"
+       mask="none"
+       clip-path="none" />
+    <text
+       xml:space="preserve"
+       style="font-size:39.52069092px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#023f83;fill-opacity:1;stroke:none;font-family:CAC Camelot;-inkscape-font-specification:CAC Camelot"
+       x="149.52411"
+       y="836.78113"
+       id="text2494"
+       inkscape:export-filename="/home/Documents/Church/hymnal-website/images/SingToTheLord.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan2496"
+         x="149.52411"
+         y="836.78113"
+         style="font-weight:normal;fill:#023f83;fill-opacity:1;-inkscape-font-specification:Bitstream Vera Sans">Sing<tspan
+   style="font-size:26.805233px;font-weight:normal;fill:#023f83;fill-opacity:1;-inkscape-font-specification:Bitstream Vera Sans"
+   id="tspan2498"> to the </tspan>Lord </tspan></text>
+    <text
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="/home/Documents/Church/hymnal-website/images/SingToTheLord.png"
+       id="text3272"
+       y="866.03473"
+       x="204.79424"
+       style="font-size:15.38954258px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#023f83;fill-opacity:1;stroke:none;font-family:CAC Camelot;-inkscape-font-specification:CAC Camelot"
+       xml:space="preserve"><tspan
+         style="font-weight:normal;fill:#023f83;fill-opacity:1;-inkscape-font-specification:Bitstream Vera Sans"
+         y="866.03473"
+         x="204.79424"
+         id="tspan3274"
+         sodipodi:role="line">RCNZ provisional hymnal</tspan></text>
   </g>
 </svg>
