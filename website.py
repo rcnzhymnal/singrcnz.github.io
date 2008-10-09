@@ -10,6 +10,24 @@ Ignore = ['Psalm Template.sib', 'sample---unprintable.sib']  # Files to ignore
 IncludeExt = 'inc'
 Templates = [ f.rsplit('.', 1)[0] for f in glob('*.inc') ]
 
+def urljoin(*pieces):
+    if not pieces: return ''
+    
+    if pieces[0].startswith('/'): start = True
+    else: start = False
+    if pieces[-1].endswith('/'): end = True
+    else: end = False
+    
+    url = ''
+    for p in pieces:
+        url += '/' + p.strip('/')
+    if not start: url = url.lstrip('/')
+    if end: url += '/'
+    return url
+
+def path2url(path):
+    return path.replace(os.path.sep, '/')
+
 def normtype(typ):
     for t in Types:
         if typ.lower() == t.lower(): typ = t
@@ -207,14 +225,14 @@ class output:
         satb = ''
         for p in ['S', 'A', 'T', 'B']:
             f = song.partfile(p)
-            if f: satb += cls.satb % (os.path.join(Partsdir, f), p)
+            if f: satb += cls.satb % (urljoin(path2url(Partsdir), f), p)
         return satb
     
 
     @classmethod
     def listing(cls, song):
         parts = cls.parts(song)
-        link = os.path.join(Songdir, song.file)
+        link = urljoin(path2url(Songdir), song.file)
         clickme = 'view/play'
         
         if 'coming' in song.stats:
