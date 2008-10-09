@@ -255,7 +255,7 @@ class output:
         out = output.header % (typ.capitalize()+'s', typ, output.mainmenu, output.submenu)
         out += toptext
         songs = Song.all(typ)
-        out += '<table>'
+        out += '<table class="songs">'
         num = 1
         for s in songs:
             print >>sys.stderr, s.name
