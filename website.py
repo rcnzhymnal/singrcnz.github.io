@@ -20,8 +20,7 @@ def filename2name(filename, folder):
         prefixes/suffixes, return num_name.
         Strips possible directory prefix, and typ, .status, .sib
     """
-    if filename.startswith(folder): filename = filename[len(folder):]
-    if filename.startswith('/'): filename = filename[1:]
+    filename = os.path.split(filename)[1]
     for typ in Types:
         if filename.lower().startswith(typ.lower()): filename = filename[len(typ):]
     for stat in Stats:
@@ -32,8 +31,8 @@ def filename2name(filename, folder):
 def num2name(n, folder):
     """ Return the name of song n
     """
-    song = glob((folder+'/*%s_*.sib') % n)
-    dot = glob((folder+'/*%s_*.sib.*') % n)
+    song = glob(os.path.join(folder, '*%s_*.sib') % n)
+    dot = glob(os.path.join(folder, '*%s_*.sib.*') % n)
     if song: return filename2name(song[0], folder)
     elif dot: return filename2name(dot[0], folder)
     return None
@@ -42,8 +41,8 @@ def normalize(numorname, folder):
     """ Take either a song number or a full song name, and return num_name
     """
     numorname = numorname.replace(' ', '_')
-    song = glob((folder+'/*%s.sib') % numorname)
-    dot = glob((folder+'/*%s.sib.*') % numorname)
+    song = glob(os.path.join(folder, '*%s.sib') % numorname)
+    dot = glob(os.path.join(folder, '*%s.sib.*') % numorname)
     if song or dot: return numorname
 
     return num2name(numorname, folder)
@@ -60,15 +59,15 @@ class Song(object):
     def __init__(self, name, folder=Songdir):
         name = normalize(name, folder)
         self.folder = folder
-        filename = glob(self.folder+'/*%s.sib' % name)[0]
-        self.file = filename.rsplit('/', 1)[1].rsplit('.', 1)[0]
+        filename = glob(os.path.join(self.folder, '*%s.sib') % name)[0]
+        self.file = os.path.split(filename)[1].rsplit('.', 1)[0]
         
         self.type = ''
         for t in Types:
             if self.file.startswith(t): self.type = t
 
-        self.files = glob((self.folder+'/*%s*') % name)
-        self.files = [ f[len(self.folder+'/'):] for f in self.files ]
+        self.files = glob(os.path.join(self.folder, '*%s*') % name)
+        self.files = [ os.path.split(f)[1] for f in self.files ]
         self.stats = []
         for f in self.files:
             for stat in Stats:
@@ -83,9 +82,9 @@ class Song(object):
         """
         if typ is None: typ = ''
         typ = normtype(typ)
-        songs = glob((folder+'/%s*.sib') % (typ))
-        dotnames = glob((folder+'/%s*.sib.*') % (typ))
-        songs = sorted([ filename2name(f, folder) for f in songs if (f.split('/')[1] not in Ignore) ])
+        songs = glob(os.path.join(folder, '%s*.sib') % (typ))
+        dotnames = glob(os.path.join(folder, '%s*.sib.*') % (typ))
+        songs = sorted([ filename2name(f, folder) for f in songs if (os.path.split(f)[1] not in Ignore) ])
         for dot in dotnames:
             dot = filename2name(dot, folder)
             if dot not in songs: songs += [dot]
@@ -94,7 +93,7 @@ class Song(object):
     def checkfile(self, ext):
         """ Check that the file of type 'ext' corresponding to this song exists
         """
-        return os.path.exists(self.folder+'/'+self.file+'.'+ext)
+        return os.path.exists(os.path.join(self.folder, self.file+'.'+ext))
 
     def partfile(self, part):
         """ Returns the part's filename, excluding prefixes & suffixes
@@ -109,7 +108,7 @@ class Song(object):
                  '%s%s_%s' % (self.type, self.num, part),
                  '%s%s_%s_%s' % (self.type, self.num, self.name, part)]
         for t in totry:
-            if os.path.exists('%s/%s.sib' % (Partsdir, t)): return t
+            if os.path.exists(os.path.join(Partsdir, t+'.sib')): return t
         return None
 
 class output:
@@ -208,14 +207,14 @@ class output:
         satb = ''
         for p in ['S', 'A', 'T', 'B']:
             f = song.partfile(p)
-            if f: satb += cls.satb % (Partsdir+'/'+f, p)
+            if f: satb += cls.satb % (os.path.join(Partsdir, f), p)
         return satb
     
 
     @classmethod
     def listing(cls, song):
         parts = cls.parts(song)
-        link = Songdir+'/'+song.file
+        link = os.path.join(Songdir, song.file)
         clickme = 'view/play'
         
         if 'coming' in song.stats:
