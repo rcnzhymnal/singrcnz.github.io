@@ -1,11 +1,11 @@
 <h2>Projection of Songs for Public Singing</h2>
 
 <p>
- We are making powerpoint slides of all the song in this hymnbook project. Our aim is to have all the Psalms available in powerpoint format by October 2008. Below is copyright information that you need to know to project these songs for public singing.
+ We are making powerpoint slides of all the songs in this hymnbook project. Our aim is to have all the Psalms available in powerpoint format by October 2008. Below is copyright information that you need to know to project these songs for public singing.
  </p>
 
 <blockquote>
-Note: this page only applies to projection for public singing. Permissions have already been obtained for full public use of the print publication Sing to the Lord (provisional).
+Note: this page only applies to projection for public singing. Permissions have already been obtained for full public use of the print publication <i>Sing to the Lord (provisional)</i>.
 </blockquote>
 
 <p>
@@ -21,7 +21,7 @@ Note: this page only applies to projection for public singing. Permissions have 
 </blockquote>
 
 <p>
- In addition, some songs which are not available elsewhere on this website for copyright reasons are now available in our Sing to the Lord (provisional) psalter. We have not yet received permission to project these for public singing. In upcoming months we will be working with copyright holders to obtain permission to project these songs also, so check back here periodically for updates:
+ In addition, some songs which are not available elsewhere on this website for copyright reasons are now available in our <i>Sing to the Lord (provisional)</i> psalter. We have not yet received permission to project these for public singing. In upcoming months we will be working with copyright holders to obtain permission to project these songs also, so check back here periodically for updates:
  </p>
 
 <p>

@@ -1,7 +1,7 @@
-<h2>Scripture Memory</h2>
+﻿<h2>Scripture Memory</h2>
 
  <p>
- The following features of the Scripture sections of our new hymnal are intended to make memorisation of scripture easier by:
+ The following features of the Scripture sections of our new hymnal are intended to make memorisation of Scripture easier by:
  </p>
  
 
@@ -14,7 +14,7 @@
 </ul> 
 
 <p>
- This helps to associate one specific tune with each Psalm, which aids our memory of the Psalms and other Scripture – especially with more accurate translations.
+ This helps to associate one specific tune with each Psalm, which aids our memory of the Psalms and other Scripture &mdash; especially with more accurate translations.
  </p>
  
 
