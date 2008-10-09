@@ -481,6 +481,7 @@ table {
 
 table.full-width { width: 95%; }
 table.narrow { width: auto; }
+table.songs { width: 110%; }
 
 table.plain {
   border-collapse: collapse;
