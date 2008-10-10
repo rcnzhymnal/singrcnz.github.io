@@ -1,6 +1,7 @@
 from glob import glob
 import os, sys
 
+Cd = False              # Whether --cd option is given to produce CD files
 Ext = 'sib'
 Songdir = 'Songs'
 Partsdir = 'Songs/parts/'
@@ -12,12 +13,12 @@ Templates = [ f.rsplit('.', 1)[0] for f in glob('*.inc') ]
 
 def urljoin(*pieces):
     if not pieces: return ''
-    
+
     if pieces[0].startswith('/'): start = True
     else: start = False
     if pieces[-1].endswith('/'): end = True
     else: end = False
-    
+
     url = ''
     for p in pieces:
         url += '/' + p.strip('/')
@@ -239,7 +240,7 @@ class output:
             parts = ''
             link = 'Coming'
             clickme = 'coming'
-        elif 'withheld' in song.stats:
+        elif 'withheld' in song.stats and not Cd:
             parts = ''
             link = 'Withheld'
             clickme = 'withheld'
@@ -282,4 +283,7 @@ def main():
         print >>f, output.template(t)
 
 if __name__ == '__main__':
+    if ('--cd' in sys.argv):
+        Cd = True
+
     main()
