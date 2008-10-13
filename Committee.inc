@@ -1,7 +1,7 @@
 <h2>Hymnbook Committee Membership</h2>
 
 <p>
- Please submit your queries and feedback to the secretary linked below. 
+ Please submit your queries and feedback to the secretary linked below.
 </p>
 
 <h3>Committee Members</h3>
@@ -17,7 +17,7 @@
 
 <li>John Rogers (Convenor)</li>
 </ul>
- 
+
 
 <h3>Additional help</h3>
 
@@ -29,8 +29,6 @@
 <li>Lydia Nugteren (typesetting)</li>
 
 <li>Rebekah de Ruiter (typesetting)</li>
-
-<li>Ben Post (copyrights)</li>
 
 <li>Pieter van der Wel (proofing)</li>
 </ul>
