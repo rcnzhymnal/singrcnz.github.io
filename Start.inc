@@ -1,6 +1,8 @@
 <p>
- Here we present a work in progress by a committee appointed by the 2002 Synod of the Reformed Churches of New Zealand.  The committee's mandate is to:
-</p>
+ Here we present a work in progress by a committee appointed by the 2002
+ Synod of the Reformed Churches of New Zealand.  The committee's mandate is
+ to:
+ </p>
 
 <ol>
  <li>Select poetic Psalm versions faithful to Scripture.</li>
@@ -14,18 +16,32 @@
 
 <h3>Progress</h3>
 
+$update
+
 <p>
- A name, <b><i>Sing to the Lord (provisonal)</i></b>, has been chosen for the provisional printing of just the Psalms. It is our current intention to use this same name for our final non-provisional hymnal. You can still browse the <a href='Name.htm'>various names</a> that were submitted to the committee as options.
+ In October 2008, we saw the arrival of the provisional
+ printing of the psalter: Sing to the Lord (provisional). The committee has
+ now embarked on the second stage of this project, the selection of hymns
+ for the final hymnal. As we complete our proof reading, these will become
+ <a href='http://hymnal.ws/public/Songs.htm'>available here</a> on the public website.
  </p>
 
 <p>
- In <b>Aug 2008</b>, Lord Willing, we expect the arrival of the provisional printing of the psalter: Sing to the Lord (provisional). The committee has now embarked on the second stage of this project, the selection of hymns for the final hymnal. As we complete our proof reading, these will become <a href='Songs.htm'>available here</a> on this website.
+ The name <b><i>Sing to the Lord (provisonal)</i></b> has been chosen for
+ the provisional printing of just the Psalms. It is our current intention to
+ use this same name for our final non-provisional hymnal. For your interest,
+ you can still check out the <a href="Name.htm">various names</a> that "almost" became
+ then name of the book.
  </p>
 
 <h3>Features</h3>
 
 <p>
- The Synod plans to publish this as a <a href='In a Book.htm'><b>book</b></a>, and has adopted this <a href='Statement of Principle.doc'>statement of principle</a> for the purpose. To help enhance our appreciation of the Psalms, these are the features of the <b>Psalms Section:</b>
+ The Synod plans to publish this as a <a href='In a
+ Book.htm'><b>book</b></a>, and has adopted this <a href='Statement of
+ Principle.doc'>statement of principle</a> for the purpose. To help enhance
+ our appreciation of the Psalms, these are the features of the <b>Psalms
+ Section:</b>
 </p>
 
 <ul>

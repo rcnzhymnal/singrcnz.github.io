@@ -1,5 +1,5 @@
 from glob import glob
-import os, sys
+import os, sys, time
 
 Cd = False              # Whether --cd option is given to produce CD files
 Ext = 'sib'
@@ -278,9 +278,22 @@ def main():
     print >>f, output.listsongs('psalm', output.psalmtext)
     f = file('Hymns.htm', 'w')
     print >>f, output.listsongs('hymn', output.hymntext)
+
+    # define locals to pass into templates
+    date = time.strftime('%d %B %Y')
+    if Cd:
+        update = """<p class='alert-message'>Updates of this page will be
+                    <a href="http://hymnal.ws/public/$page">available on the web here</a>.</p>"""
+    else:
+        update = ''
+
     for t in Templates:
         f = file(t+'.htm', 'w')
-        print >>f, output.template(t)
+        text = output.template(t)
+        text = text.replace('$update', update)
+        text = text.replace('$date', date)
+        text = text.replace('$page', t+'.htm')
+        print >>f, text
 
 if __name__ == '__main__':
     if ('--cd' in sys.argv):
