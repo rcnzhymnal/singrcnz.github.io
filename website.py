@@ -137,7 +137,7 @@ class output:
     # (link, clickme, SATB, typ, num, title)
     viewable = """<tr><td><a href="%s.htm">%s</a></td><td>%s</td><td><b>%s %s</b>&nbsp;&nbsp;<i>%s</i></td></tr>\n"""
 
-    hymntext = "<h1>Hymns</h1>\n<p>The only hymns listed here are ones that were associated with a psalm but we decided to put them in as a hymn.</p>"
+    hymntext = "<h1>Hymns</h1>\n $update <p>The only hymns listed here are ones that were associated with a psalm but we decided to put them in as a hymn.</p>"
     psalmtext = "<h1>Psalms</h1>"
 
     # (title, id, mainmenu, submenu)
@@ -274,11 +274,6 @@ class output:
         return cls.header % (fname.capitalize(), fname.lower(), cls.mainmenu, cls.submenu) + f.read() + cls.footer
 
 def main():
-    f = file('Psalms.htm', 'w')
-    print >>f, output.listsongs('psalm', output.psalmtext)
-    f = file('Hymns.htm', 'w')
-    print >>f, output.listsongs('hymn', output.hymntext)
-
     # define locals to pass into templates
     date = time.strftime('%d %B %Y')
     if Cd:
@@ -286,6 +281,12 @@ def main():
                     <a href="http://hymnal.ws/public/$page">available on the web here</a>.</p>"""
     else:
         update = ''
+
+
+    f = file('Psalms.htm', 'w')
+    print >>f, output.listsongs('psalm', output.psalmtext)
+    f = file('Hymns.htm', 'w')
+    print >>f, output.listsongs('hymn', output.hymntext.replace('$update', update).replace('$page','Hymns.htm'))
 
     for t in Templates:
         f = file(t+'.htm', 'w')
