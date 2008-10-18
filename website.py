@@ -4,6 +4,8 @@ import os, sys, time
 Cd = False              # Whether --cd option is given to produce CD files
 Ext = 'sib'
 Songdir = 'Songs'
+Pptdir = 'Songs'
+Pdfdir = 'Songs/Psalms and Hymns PDF'
 Partsdir = 'Songs/parts/'
 Types = ['psalm', 'Hymn']
 Stats = ['coming', 'withheld', 'proofed']
@@ -109,10 +111,11 @@ class Song(object):
             if dot not in songs: songs += [dot]
         return [ Song(song) for song in songs ]
 
-    def checkfile(self, ext):
+    def checkfile(self, ext, folder=None):
         """ Check that the file of type 'ext' corresponding to this song exists
         """
-        return os.path.exists(os.path.join(self.folder, self.file+'.'+ext))
+        if folder == None: folder = self.folder
+        return os.path.exists(os.path.join(folder, self.file+'.'+ext))
 
     def partfile(self, part):
         """ Returns the part's filename, excluding prefixes & suffixes
@@ -132,10 +135,10 @@ class Song(object):
 
 class output:
     # (link, X)
-    satb = """<a href="%s.htm">%s</a>&nbsp;"""
+    link = """<a href="%s">%s</a>"""
 
-    # (link, clickme, SATB, typ, num, title)
-    viewable = """<tr><td><a href="%s.htm">%s</a></td><td>%s</td><td><b>%s %s</b>&nbsp;&nbsp;<i>%s</i></td></tr>\n"""
+    # (link, clickme, SATB, typ, num, title, filelinks)
+    viewable = """<tr><td><a href="%s.htm">%s</a></td><td>%s</td><td><b>%s %s</b>&nbsp;&nbsp;<i>%s</i><br />%s</td></tr>\n"""
 
     hymntext = "<h1>Hymns</h1>\n $update <p>The only hymns listed here are ones that were associated with a psalm but we decided to put them in as a hymn.</p>"
     psalmtext = "<h1>Psalms</h1>"
@@ -223,10 +226,11 @@ class output:
 """
     @classmethod
     def parts(cls, song):
-        satb = ''
+        satb = []
         for p in ['S', 'A', 'T', 'B']:
             f = song.partfile(p)
-            if f: satb += cls.satb % (urljoin(path2url(Partsdir), f), p)
+            if f: satb += [cls.link % (urljoin(path2url(Partsdir), f+'.htm'), p)]
+        satb = '&nbsp;'.join(satb)
         return satb
 
 
@@ -235,6 +239,11 @@ class output:
         parts = cls.parts(song)
         link = urljoin(path2url(Songdir), song.file)
         clickme = 'view/play'
+
+        files = []
+        if song.checkfile('ppt', Pptdir): files += [cls.link % (urljoin(path2url(Pptdir), song.file+'.ppt'), 'Powerpoint')]
+        if song.checkfile('pdf', Pdfdir): files += [cls.link % (urljoin(path2url(Pdfdir), song.file+'.pdf'), 'PDF')]
+        files = ' | '.join(files)
 
         if 'coming' in song.stats:
             parts = ''
@@ -249,7 +258,7 @@ class output:
             link = 'Proofing'
             clickme = 'proofing'
 
-        return cls.viewable % (link, clickme, parts, song.type.capitalize(), song.num.lstrip('0'), song.title)
+        return cls.viewable % (link, clickme, parts, song.type.capitalize(), song.num.lstrip('0'), song.title, files)
 
     @classmethod
     def listsongs(cls, typ, toptext):
