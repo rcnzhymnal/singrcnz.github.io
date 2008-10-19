@@ -481,7 +481,7 @@ table {
 
 table.full-width { width: 95%; }
 table.narrow { width: auto; }
-table.songs { width: 130%; }
+table.songs { width: 140%; }
 
 table.plain {
   border-collapse: collapse;
@@ -494,7 +494,7 @@ table.plain {
     border: none;
     text-align: left;
   }
-  
+
 table.columns {
 }
   .columns td {
@@ -526,7 +526,7 @@ form table { }
   }
 
 table.even-odd {
-  
+
 }
   .even-odd th { text-align: left; }
   .even-odd tr { }
