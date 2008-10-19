@@ -138,7 +138,7 @@ class output:
     link = """<a href="%s">%s</a>"""
 
     # (link, clickme, SATB, typ, num, title, filelinks)
-    viewable = """<tr><td><a href="%s.htm">%s</a></td><td>%s</td><td><b>%s %s</b>&nbsp;&nbsp;<i>%s</i><br />%s</td></tr>\n"""
+    viewable = """<tr><td><a href="%s.htm">%s</a></td><td>%s</td><td><b>%s %s</b>&nbsp;&nbsp;<i>%s</i></td><td>%s</td></tr>\n"""
 
     hymntext = "<h1>Hymns</h1>\n $update <p>The only hymns listed here are ones that were associated with a psalm but we decided to put them in as a hymn.</p>"
     psalmtext = "<h1>Psalms</h1>"
@@ -243,7 +243,7 @@ class output:
         files = []
         if song.checkfile('ppt', Pptdir): files += [cls.link % (urljoin(path2url(Pptdir), song.file+'.ppt'), 'Powerpoint')]
         if song.checkfile('pdf', Pdfdir): files += [cls.link % (urljoin(path2url(Pdfdir), song.file+'.pdf'), 'PDF')]
-        files = ' | '.join(files)
+        files = '&nbsp;&nbsp;&nbsp;'.join(files)
 
         if 'coming' in song.stats:
             parts = ''
