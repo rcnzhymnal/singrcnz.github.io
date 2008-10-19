@@ -243,7 +243,6 @@ class output:
         files = []
         if song.checkfile('ppt', Pptdir): files += [cls.link % (urljoin(path2url(Pptdir), song.file+'.ppt'), 'Powerpoint')]
         if song.checkfile('pdf', Pdfdir): files += [cls.link % (urljoin(path2url(Pdfdir), song.file+'.pdf'), 'PDF')]
-        files = '&nbsp;&nbsp;&nbsp;'.join(files)
 
         if 'coming' in song.stats:
             parts = ''
@@ -253,10 +252,13 @@ class output:
             parts = ''
             link = 'Withheld'
             clickme = 'withheld'
+            files = files[0:1]
         elif 'proofed' not in song.stats:
             parts = ''
             link = 'Proofing'
             clickme = 'proofing'
+
+        files = '&nbsp;&nbsp;&nbsp;'.join(files)
 
         return cls.viewable % (link, clickme, parts, song.type.capitalize(), song.num.lstrip('0'), song.title, files)
 
@@ -269,10 +271,10 @@ class output:
         num = 1
         for s in songs:
             print >>sys.stderr, s.name
-            out += cls.listing(s)
             try: num = int(s.num)
-            except ValueError: pass
-            if num%10 == 0: out += '<tr><td><br /></td></tr>\n'
+            except ValueError: num = 0
+            if num%10 == 0 and num != 0: out += '<tr><td style="border:none"><br /></td></tr>\n'
+            out += cls.listing(s)
         out += '</table>'
         out += output.footer
         return out
