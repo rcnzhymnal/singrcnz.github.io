@@ -288,10 +288,19 @@ def main():
     # define locals to pass into templates
     date = time.strftime('%d %B %Y')
     if Cd:
-        update = """<p class='alert-message'>Updates of this page will be
-                    <a href="http://hymnal.ws/public/$page">available on the web here</a>.</p>"""
+        update = """
+            <p class='alert-message'>Updates of this page will be
+            <a href="http://hymnal.ws/public/$page">available on the web here</a>.</p>
+            """
+        installer = """
+            <p class='alert-message'>To view songs on this website you'll need to install
+            the "Scorch" software. Choose your operating system:
+            <a href="ScorchInstallers/Scorch521AllBrowsersInstaller.msi">Windows XP</a> |
+            <a href="ScorchInstallers/SibeliusScorch521.dmg">Macintosh</a>.</p>
+            """
     else:
         update = ''
+        installer = ''
 
 
     f = file('Psalms.htm', 'w')
@@ -303,6 +312,7 @@ def main():
         f = file(t+'.htm', 'w')
         text = output.template(t)
         text = text.replace('$update', update)
+        text = text.replace('$installer', installer)
         text = text.replace('$date', date)
         text = text.replace('$page', t+'.htm')
         print >>f, text
