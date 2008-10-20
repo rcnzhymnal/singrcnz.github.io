@@ -1,3 +1,5 @@
+$installer
+
 <p>
  Here we present a work in progress by a committee appointed by the 2002
  Synod of the Reformed Churches of New Zealand.  The committee's mandate is
