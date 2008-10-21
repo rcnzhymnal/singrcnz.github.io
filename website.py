@@ -298,9 +298,16 @@ def main():
             <a href="ScorchInstallers/Scorch521AllBrowsersInstaller.msi">Windows XP</a> |
             <a href="ScorchInstallers/SibeliusScorch521.dmg">Macintosh</a>.</p>
             """
+        copyright = """
+            <p>
+             This CD contains the PDF (score) and text (lyrics) files of the whole printed book.
+             It is important to note that copyright for these are tied up with the book and you may
+             copy neither them nor this CD beyond the number of books that you own.</p>
+            """
     else:
         update = ''
         installer = ''
+        copyright = ''
 
 
     f = file('Psalms.htm', 'w')
@@ -313,6 +320,7 @@ def main():
         text = output.template(t)
         text = text.replace('$update', update)
         text = text.replace('$installer', installer)
+        text = text.replace('$copyright', copyright)
         text = text.replace('$date', date)
         text = text.replace('$page', t+'.htm')
         print >>f, text
