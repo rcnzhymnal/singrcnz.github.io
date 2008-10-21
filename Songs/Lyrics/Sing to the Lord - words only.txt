@@ -5733,7 +5733,7 @@ Psalm 101  I’ll praise your love and justice
 
 3. I hate what faithless people do;
      it shall not cling to me.
-   All wicked people I’ll avoid,
+   All wicked people I’ll avoid;
      from evil I’ll stay free.
 
 4. I’ll put to silence everyone
@@ -5925,7 +5925,7 @@ Psalm 103b  O come my soul, bless thou the Lord
    Bless him, ye angels, wondrous in might.
    Bless him, his servants, that in his will delight.
 
-2. Good is the Lord, and full of kind compassion,
+2. Good is the Lord and full of kind compassion,
      most slow to anger, plenteous in love;
    rich is his grace to all that humbly seek him,
      boundless and endless as the heavens above.
@@ -6046,7 +6046,7 @@ Psalm 105  Give thanks to the Lord God
      “To you I will give, as your portion to stand,
      the country of Canaan, the beautiful land.”
 
-3. When they were no more than a wandering few;
+3. When they were no more than a wandering few,
      in number restricted and foreigners too,
      from nation to nation they travelled around;
      wherever they wandered, no rest could be found.
@@ -6089,10 +6089,10 @@ Psalm 105  Give thanks to the Lord God
    He spoke and the locusts and grasshoppers came;
      and every green thing was consumed as by flame.
      And then he took vengeance on all the firstborn –
-     the first fruits of manhood of Egypt were gone.
+     the firstfruits of manhood of Egypt were gone.
 
 8. He brought Israel out bearing silver and gold;
-     the tribes all marched forwards both steadfast and bold.
+     their tribes all marched forwards both steadfast and bold.
      Then Egypt was joyful to see them depart,
      for terror of them had laid hold of their heart.
    He spread out a cloud to protect them from sight,
@@ -6133,7 +6133,7 @@ Psalm 105b  Unto the Lord lift thankful voices
    upon the wonders of his hands,
      the judgments which his mouth commands.
 
-4. Ye seed from Abraham descended
+4. Ye seed from Abraham descended,
      to whom his favours were extended,
    and Jacob’s children, whom the Lord
      has chosen, hearken to his word.
@@ -6309,7 +6309,7 @@ Psalm 107  O thank the Lord, for he is good
    Their life and strength were ebbing fast
      in thirst and emptiness.
      Then in despair they sought the Lord,
-     who saved them from distress
+     who saved them from distress.
 
 3. Straight was the path he led them on,
      a city to attain.
@@ -6484,7 +6484,7 @@ Psalm 109  O my God, whose name I worship
 3. May his rule pass to another; short and wretched be his life.
      Fatherless shall be his children, make a widow of his wife.
    May his children beg and wander, driven from their ruined gate.
-     May his gods be seized and taken – strangers plunder his estate.
+     May his goods be seized and taken – strangers plunder his estate.
 
 4. May no one take pity on him or his orphans in their plight.
      May his family line be ended, and their names be lost to sight.
@@ -6538,7 +6538,7 @@ Psalm 110  The Lord unto my Lord has said
      God’s word is always true.
 
 3. You shall subdue the kings of earth,
-     with God at your right hand,
+     with God at your right hand;
      the nations you shall rule in might
      and judge in every land.
    The Lord, refreshed by living streams,
