@@ -6635,7 +6635,7 @@ Psalm 113  O praise, you servants of the Lord
      to look on heaven and earth below.
 
 3. He raises outcasts from the dust,
-     and from the ash heap lifts the poor;
+     and from the ash heap lifts the poor,
      exalting them to dignity,
      with noblemen to sit secure.
    The childless woman he’ll reward
@@ -6657,7 +6657,7 @@ Psalm 114  When Israel out of Egypt came
 3. O sea, why was it that you fled?
      O Jordan, that you backward sped?
    you mountains, that you skipped like rams,
-     and all you hills, like little lambs.
+     and all you hills, like little lambs?
 
 4. O tremble, earth, before the Lord,
      before the face of Jacob’s God,
@@ -7481,7 +7481,7 @@ Psalm 120  I cried in trouble to the Lord
    What shall be given you, false tongue?
      what added to your doom?
      Sharp arrows of a mighty man,
-     and redhot coals of broom.
+     and red-hot coals of broom.
 
 2. Alas for me that I sojourn
      so long in Meshech’s land;
