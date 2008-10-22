@@ -6988,7 +6988,7 @@ Psalm 119:9–16  How can the young keep their life pure?
      I gladly with my lips have told.
      I love to follow your commands,
      as others love to count their gold.
-   I meditate upon your ways
+   I meditate upon your ways,
      and on your precepts I reflect.
      I take delight in your decrees;
      your word I never will neglect.
@@ -7058,7 +7058,7 @@ Psalm 119:25–32 b  Here I lie, my soul clings to the dust
      and attention to your judgments give.
    Your instructions I have followed, Lord.
      Let not shame upon my head be poured.
-     Help me obey.
+     Help me obey!
 
 
 Psalm 119:33–40  Teach me, O Lord
@@ -7103,8 +7103,8 @@ Psalm 119:41–48  May your unfailing love come to me
 
 4. I take pleasure in all your commands,
      and I love them – they’re precious to me.
-   I will reach out my hands to your laws,
-     and will meditate on your decrees.
+   I will reach out my hands to your laws
+     and will meditate on your decree.
 
 
 Psalm 119:49–56  Lord, your word to me remember
@@ -7163,7 +7163,7 @@ Psalm 119:65–72  Lord, you have dealt well
 2. Before my affliction I wandered,
      but now your good word I obey.
    O Lord, you are good and you do good,
-     now teach me your statutes I pray.
+     now teach me your statutes, I pray.
 
 3. The proud have assailed me with slander;
      your precepts shall still be my guide.
@@ -7192,10 +7192,10 @@ Psalm 119:73–80  Your hands have fashioned me
    That I may live, your mercy give,
      for I with joy your law receive.
 
-3. Oh, shame the arrogant,
+3. Oh, shame the arrogant
      who baselessly defame me.
      May those who fear and know
-     you statutes turn to me.
+     your statutes turn to me.
    In your decree, keep me from blame
      that I may not be put to shame.
 
@@ -7236,7 +7236,7 @@ Psalm 119:89–96  Eternal is your word, O Lord
      I would have died in misery.
      I never will forget your laws,
      for by them you have rescued me.
-   Lord, I am yours – save me I pray,
+   Lord, I am yours – save me, I pray,
      for I have sought your precepts’ way.
 
 3. The wicked lie in wait for me;
@@ -7366,13 +7366,13 @@ Psalm 119:137–144  O Lord, you are the Righteous One
      entirely worthy of our trust.
 
 2. My zeal consumes and wears me out,
-     because my foes forget you word.
+     because my foes forget your word.
    Your promises are tried and proved,
      and I your servant love them, Lord.
 
 3. Though I am lowly and despised,
      your precepts I do not forget.
-   Eternal in your righteousness,
+   Eternal is your righteousness;
      true is the law that you have set.
 
 4. Distress and trouble press me down,
@@ -7412,7 +7412,7 @@ Psalm 119:153–160  Look on my suffering
      because against your law they take their stand.
 
 2. Great are your mercies, Lord; revive my soul
-     by your good law;
+     by your good law.
    My enemies – they persecute me while
      I keep your law.
    I see the faithless, treacherous they are;
@@ -7457,7 +7457,7 @@ Psalm 119:169–176  Let my cry come before you
      save my life, as you promised to do.
 
 2. May my lips overflow with your praise,
-     For you teach me your statutes always.
+     for you teach me your statutes always.
    May my tongue sing aloud of your word;
      your commandments are righteous, O Lord.
 
@@ -7646,7 +7646,7 @@ Psalm 127  Unless the Lord builds
    The man whose quiver’s full of them
      is blest by God in truth.
 
-5. Such man will not be put to shame –
+5. Such men will not be put to shame –
      that will not be their fate –
    when they contend against their foes
      who face them in the gate.
@@ -7679,7 +7679,7 @@ Psalm 129  They have oppressed me
 
 2. They drew their ploughs across my back;
      the ploughmen made their furrows long.
-   The Lord is just, he cut me free
+   The Lord is just; he cut me free
      from cords of those who did me wrong.
 
 3. May all who hate Jerusalem
@@ -7744,7 +7744,7 @@ Psalm 132  Lord our God, remember David
 
 2. We, in Ephrathah, have heard this,
      found it in the fields of Jaar:
-     “Let us hasten to his dwelling
+     “Let us hasten to his dwelling,
      worship at his footstool there.
    Rise, O Lord, and dwell among us,
      resting with your ark of might!
@@ -7943,7 +7943,7 @@ Psalm 137  By Babel’s streams we sat and wept
    The winds alone our harp strings swept,
      that on the drooping willows hung.
 
-2. There our rude captors, flushed with pride;
+2. There our rude captors, flushed with pride,
      a song required to mock our wrongs;
    our spoilers called for mirth and cried,
      “Come, sing us one of Zion’s songs.”
@@ -8011,12 +8011,12 @@ Psalm 138  With grateful heart my thanks I bring
      but thou hast mercy for the meek.
    Through trouble though my pathway be,
      thou wilt revive and strengthen me,
-     thou wilt revive and strengthen me,
+     thou wilt revive and strengthen me.
 
 4. Thou wilt stretch forth thy mighty arm
      to save me when my foes alarm.
      The work thou hast for me begun
-     shall by thy grace be fully done,
+     shall by thy grace be fully done;
    forever mercy dwells with thee;
      O Lord, my Maker, think on me;
      O Lord, my Maker, think on me.
@@ -8081,7 +8081,7 @@ Psalm 139  O God, you search me
 
 12. Search me, O God, and know my heart well.
      All my anxious thoughts please test and know.
-   See if any offensive way be in me
+   See if any offensive way be in me,
      and in the way everlasting lead me home.
 
 
@@ -8164,7 +8164,7 @@ Psalm 140  Save me, O Lord
 4. O Lord, let those who hem me in
      be overwhelmed by their own lies.
      Let burning coals upon them fall;
-     from deepest pits may they not rise,
+     from deepest pits may they not rise.
    May liars find no place to stay,
      the vi-o-lent be swept away.
 
