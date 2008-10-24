@@ -4,7 +4,7 @@ import os, sys, time
 Cd = False              # Whether --cd option is given to produce CD files
 Ext = 'sib'
 Songdir = 'Songs'
-Pptdir = 'Songs'
+Pptdir = 'Songs/slides'
 Pdfdir = 'Songs/Psalms and Hymns PDF'
 Partsdir = 'Songs/parts/'
 Types = ['psalm', 'Hymn']
