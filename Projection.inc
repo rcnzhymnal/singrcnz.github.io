@@ -3,7 +3,7 @@
 $update
 
 <p>
- We plan to making <a href='Psalms.htm'>powerpoint slides</a> of all the
+ We plan to make <a href='Psalms.htm'>powerpoint slides</a> of all the
 songs in this hymnbook project. Below is copyright information that you
 need to know to project these songs for public singing. </p>
 
