@@ -145,7 +145,9 @@ class output:
         <p>The only hymns listed here are ones that were associated with a psalm
         but we decided to put them in as a hymn.</p>"""
     psalmtext = """<h1>Psalms</h1>
-        <p>You can also download <a href='Songs/slides/slides.zip'>all the powerpoint slides in a zip file</a>.</p>"""
+        <p>You can also download
+        <a href='Songs/slides/slides.zip'>all the powerpoint slides in a zip file</a>
+        (also see <a href="Projection.htm">projection permissions</a>).</p>"""
 
     # (title, id, mainmenu, submenu)
     header = """<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
