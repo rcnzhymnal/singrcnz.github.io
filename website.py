@@ -140,8 +140,12 @@ class output:
     # (link, clickme, SATB, typ, num, title, filelinks)
     viewable = """<tr><td><a href="%s.htm">%s</a></td><td>%s</td><td><b>%s %s</b>&nbsp;&nbsp;<i>%s</i></td><td>%s</td></tr>\n"""
 
-    hymntext = "<h1>Hymns</h1>\n $update <p>The only hymns listed here are ones that were associated with a psalm but we decided to put them in as a hymn.</p>"
-    psalmtext = "<h1>Psalms</h1>"
+    hymntext = """<h1>Hymns</h1>
+        $update
+        <p>The only hymns listed here are ones that were associated with a psalm
+        but we decided to put them in as a hymn.</p>"""
+    psalmtext = """<h1>Psalms</h1>
+        <p>You can also download <a href='Songs/slides/slides.zip'>all the powerpoint slides in a zip file</a>.</p>"""
 
     # (title, id, mainmenu, submenu)
     header = """<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
@@ -292,11 +296,23 @@ def main():
             <p class='alert-message'>Updates of this page will be
             <a href="http://hymnal.ws/public/$page">available on the web here</a>.</p>
             """
-        installer = """
-            <p class='alert-message'>To view songs on this website you'll need to install
-            the "Scorch" software. Choose your operating system:
-            <a href="ScorchInstallers/Scorch521AllBrowsersInstaller.msi">Windows XP</a> |
-            <a href="ScorchInstallers/SibeliusScorch521.dmg">Macintosh</a>.</p>
+        cdheader = """
+            <h3>QuickStart</h3>
+            <p>You can view the entire contents of the printed book in several formats:<br />
+            <ul>
+             <li><a href='Songs/Lyrics/Sing%20to%20the%20Lord%20-%20words%20only.doc'>MS-Word</a>
+             | <a href='Songs/Lyrics/Sing%20to%20the%20Lord%20-%20words%20only.txt'>text</a>
+             | <a href='Sing%20to%20the%20Lord%20-%20provisional.pdf'>PDF-score</a>
+             (if needed, install this <a href='FoxitReader23_setup.exe'>PDF viewer</a>)</li>
+             <li>Browse and play
+              <font color='red'>
+               (You&rsquo;ll need to install the &ldquo;Scorch&rdquo; software; choose your operating system:
+               <a href="ScorchInstallers/Scorch521AllBrowsersInstaller.msi">Windows XP</a> |
+               <a href="ScorchInstallers/SibeliusScorch521.dmg">Macintosh</a>).
+              </font>
+             </li>
+            </ul>
+            <hr />
             """
         copyright = """
             <p>
@@ -306,7 +322,7 @@ def main():
             """
     else:
         update = ''
-        installer = ''
+        cdheader = ''
         copyright = ''
 
 
@@ -319,7 +335,7 @@ def main():
         f = file(t+'.htm', 'w')
         text = output.template(t)
         text = text.replace('$update', update)
-        text = text.replace('$installer', installer)
+        text = text.replace('$cdheader', cdheader)
         text = text.replace('$copyright', copyright)
         text = text.replace('$date', date)
         text = text.replace('$page', t+'.htm')
