@@ -3333,7 +3333,7 @@ Psalm 60  O God, you have rejected us
      in triumph on this day?
      Lord, why have you rejected us
      and turned your face away?
-   O Lord, we plead, grant us you help
+   O Lord, we plead, grant us your help
      against our enemy.
      The Lord will tread down all our foes!
      God will give victory!
@@ -3543,7 +3543,7 @@ Psalm 65  Praise is your right, O God, in Zion
 
 3. You bless the earth with streams and rivers
      and with the gentle rain.
-     You settle ridges, soften furrows.
+     You settle ridges, soften furrows,
      and bless the sprouting grain.
    You crown the year with ample harvest;
      a rich abundance springs.
@@ -4183,7 +4183,7 @@ Psalm 74  O God, why have you cast us off?
 
 4. They smashed to pieces all the fretted woodwork –
      with axe and hatchet every panelled frame.
-   They burned you holy sanctu’ry to ashes,
+   They burned your holy sanctu’ry to ashes,
      and made unclean the place where dwells your Name.
 
 5. Their thought was, “We will utterly destroy them!”
@@ -4276,7 +4276,7 @@ Psalm 76  God is known among his people
    When thine anger once is risen,
      who can stand in that dread day?
 
-3. When from heaven thy sentence sounded,
+3. When from heav'n thy sentence sounded,
      all the earth in fear was still,
    while to save the meek and lowly
      God in judgment wrought his will.
@@ -4993,7 +4993,7 @@ Psalm 86b  Lord, my petition heed
      from death you set me free
      when foes alarm.
    Your grace I surely know;
-     your anger, Lord, is slow;
+     your anger, Lord, is slow,
      your lovingkindness show;
      save me from harm.
 
@@ -5704,7 +5704,7 @@ Psalm 100b  All people that on earth do dwell
      come ye before him and rejoice.
 
 2. Know that the Lord is God indeed;
-     without our aid he did us make,
+     without our aid he did us make;
    we are his flock, he doth us feed,
      and for his sheep he doth us take.
 
@@ -7905,7 +7905,7 @@ Psalm 136  O thank the Lord, for he is good
      his love will fail us never.
    He made a pathway through the sea;
      his love endures forever.
-   And through it he brought Israel
+   And through it he brought Israel;
      his love will fail us never.
 
 4. The Lord drowned Pharaoh and his host;
