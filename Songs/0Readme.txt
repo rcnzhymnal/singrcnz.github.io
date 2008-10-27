@@ -19,7 +19,10 @@ title, simply create an empty file called "psalmXXX_This_is_the_Title.sib.coming
 5. Each .sib file must have a matching "psalmXXX_This_is_the_Title.htm"
 file that can be created with Berwyn's script "scorcher.py -q *.sib"
 
+6. The filenames must not contain semicolons or web page links don't work right.
+Use commas instead.
+
 If you are technically inclined enough to be able to install python, you
 can run the automatic web page generator from the parent directory.  It is
-"python ListSongs.py" which takes the content of Header.htm and appends all
-the songs, creating the hymns page file called start.htm
+"python website.py" which generates the web pages from the .inc templates
+and creates links to all the songs.
