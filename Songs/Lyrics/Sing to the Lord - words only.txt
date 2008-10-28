@@ -5531,7 +5531,7 @@ Psalm 96  Sing to the Lord, sing his praise
    Splendour and majesty shine out before him;
      glory and strength in his temple dwell.
 
-4. Give unto God Most High glory and honour;
+4. Give unto GOD Most High glory and honour;
      come with your offerings and humbly draw near.
    Worship the Lord in all beauty and splendour;
      tremble before him with godly fear.
@@ -5593,7 +5593,7 @@ Psalm 98  Sing a new song to Jehovah
      triumph to his cause have brought.
    In his love and tender mercy
      he has made salvation known;
-     in the sight of every nation,
+     in the sight of every nation
      he his righteousness has shown.
 
 2. Truth and mercy toward his people
