@@ -56,5 +56,5 @@ $update
 <h3>PowerPoint Slides</h3>
 
 <p>
- <b>Coming soon! (October)</b>
+ <b>Available on the CD</b>
 </p>

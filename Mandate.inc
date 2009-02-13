@@ -6,7 +6,7 @@
 <p>
 <b> The following is an extract from the minutes of the 2002 Synod of the Reformed Churches of New Zealand:</b>
 </p>
- 
+
 
 <p>
  Synod approved the following mandate for the Psalm and Hymn Selection Committee:
@@ -21,7 +21,11 @@
  <ul>
     <li>      Where Genevan tunes are presented, the committee is to consider providing a non-Genevan alternative.</li>
 
-    <li>      The committee is to solicit contributions from a wide cross-section of our membership. (This is to help the committee in its selection task and to gain a better feel for the preferences of our members. However, while all contributions will receive due consideration, the committee is not bound by the act of contribution.)</li>
+    <li>      The committee is to solicit contributions from a wide cross-section of our membership. (This is to help the committee in its selection task and to gain a better feel for the preferences of our members. However, while all contributions will r
+
+
+
+eceive due consideration, the committee is not bound by the act of contribution.)</li>
 
     <li>       In respect of updating language, the committee is to leave well alone by and large and change only when necessary for meaning.</li>
 
@@ -37,7 +41,7 @@
 <p>
  <b>The following is an extract from the minutes of the 2005 Synod of the Reformed Churches of New Zealand:</b>
  </p>
- 
+
 
 <p>
  <b>Synod decided</b>
@@ -72,7 +76,7 @@
      <li>Such CDs are easy to produce as a by-product of what the committee is already doing.</li>
      <li>The only costs involved are the copyrights and the small cost of a blank CD.</li>
     </ol>
-   </li> 
+   </li>
 
    <li>
     <i>That computer CDs for use in homes be produced including:</i>
@@ -85,7 +89,7 @@
      <li>This will give church leaders a tool to enable every family with a computer to worship God in song even where no one in the family can play a musical instrument.</li>
      <li>It will also enable homes with musical talent to play the music and sing in 4-part harmony.</li>
     </ol>
-   </li> 
+   </li>
 
    <li>
     <i>That copyright permissions be obtained and paid for by the Synodical Treasurer (for the above uses and/or for the first print run, whichever is best).</i>
@@ -104,3 +108,46 @@
    <li><i>To adopt Statement of Principle (cf. Report 12, Appendix) for inclusion in the proposed new psalter-hymnal.</i></li>
 </ol>
 
+
+<p>
+ <b>The following is an extract from the minutes of the 2008 Synod of the Reformed Churches of New Zealand:</b>
+ </p>
+
+
+<p>
+ <b>Synod decided</b>
+ </p>
+
+<i><ol>
+   <li> To charge the Psalm & Hymn Selection Committee to continue its work as mandated by Synods 2002 & 2005 with a view to: </li>
+   <ol>
+    <li> final approval of Psalm and hymn selections in 2011; and </li>
+    <li> authorisation of publication in 2011. </li>
+   </ol>
+   <li> To request the Churches to use and study the provisional Psalm selection and give
+        feedback with any suggestions and/or criticisms to help the committee improve the
+        selection where thought possible or necessary.
+   </li>
+</ol></i>
+
+<p>
+ Rev. Rogers commended to the churches the <i><a href='Introduction.pdf'>Introduction to Sing to the Lord (Provisional) for
+ Ministers and Musicians</a></i> written by Mrs. Lieda Brooks.
+ </p>
+
+<p>
+ He sought clarification with regard to the statement in the mandate of the committee &ldquo;not to include
+ original material&rdquo; and asked for permission to do so after all. Synod gave its permission to include
+ original material by common consent.
+ </p>
+
+<p>
+ <b>Synod decided</b>
+ </p>
+<i><ol>
+    To express its thanks to the committee for the work done so far.
+</ol></i>
+
+<p>
+ The moderator instructed the stated clerk to put this in writing to the committee.
+</p>
