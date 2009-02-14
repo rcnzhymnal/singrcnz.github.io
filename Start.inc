@@ -14,7 +14,7 @@ $cdheader
 
 <p style='text-align: right'>
 (<Click here for the <a href='Mandate.htm'>full mandate</a> and the <br />
-Commitee Reports to Synods <a href='Report to Synod 2005.pdf'>2005</a>
+Committee Reports to Synods <a href='Report to Synod 2005.pdf'>2005</a>
 and <a href='Report to Synod 2008.pdf'>2008</a>)
 
 
