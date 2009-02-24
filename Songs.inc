@@ -1,7 +1,8 @@
 <h2>Songs Done so Far</h2>
 
 <p>
- <b>Copyright:</b>      This music is <a href='Copyright.htm'>copyright</a>
+ <b>Copyright:</b>      The <a href='Psalms.htm'>Psalms</a> and <a href='Hymns.htm'>hymns</a>
+ available here are <a href='Copyright.htm'>copyright</a>
  and may not be copied except according to these <a
  href='Copyright.htm'>details</a>. Note, however, that publication
  permission for the <i>Sing to the Lord (provisional)</i> psalter has
