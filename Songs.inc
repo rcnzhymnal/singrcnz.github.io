@@ -38,7 +38,7 @@
 <p>
  <b>Updates:</b>        These song pages will be updated <b>regularly</b>
 as we progress through the project.  Click this link if you wish to provide
-<a href='mailto:berwyn@hymnal.ws?subject=NZPH%20Feedback?&amp;body=Person/Group%20submitting%20this%20feedback:%20
+<a href='mailto:berwyn@hymnal.ws?subject=NZPH%20Feedback&amp;body=Person/Group%20submitting%20this%20feedback:%20
 %0D%0A%0D%0ASong(s)%20you%20are%20commenting%20about:%20%
 0D%0A%0D%0AComment%20and%20reasons:
 %0D%0A%0D%0A%0D%0A%0D%0AIf%20you%20do%20not%20like%20this%20song,%20give%20a%20suitable%20alternative:
