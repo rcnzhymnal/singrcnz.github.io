@@ -2,7 +2,7 @@
 
 <p>
  You can now download the
- <a href='Sing to the Lord tune Index.xls'>Sing to the Lord Tune Index</a>
+ <a href='Sing to the Lord tune index.xls'>Sing to the Lord Tune Index</a>
  as a spreadsheet.
 </p>
 
