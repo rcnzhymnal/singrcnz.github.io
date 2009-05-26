@@ -11,7 +11,7 @@
 
 <li>John Goris</li>
 
-<li><a href="email%3Fe=berwyn" onmouseover="e=&quot;berwyn&quot;+String.fromCharCode(64)+&quot;hymnal.ws&quot;; this.href=&quot;mai&quot;+&quot;lto:&quot;+e; this.firstChild.nodeValue=e;">Berwyn Hoyt (secretary & webmaster)</a></li>
+<li><a href="email%3Fe=admin" onmouseover="e=&quot;admin&quot;+String.fromCharCode(64)+&quot;hymnal.ws&quot;; this.href=&quot;mai&quot;+&quot;lto:&quot;+e; this.firstChild.nodeValue=e;">Berwyn Hoyt (secretary & webmaster)</a></li>
 
 <li>Lois Hoyt</li>
 

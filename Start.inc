@@ -23,10 +23,14 @@ and <a href='Report to Synod 2008.pdf'>2008</a>)
 $update
 
 <p>
+ <b><font color='Red'>New!</font></b> Check out our new page of
+ <a href='Musicians.htm'>resources for musicians</a>.
+ </p>
+
+<p>
  In October 2008, we saw the arrival of the provisional
  printing of the psalter: <i>Sing to the Lord (provisional)</i> and it has been
- well-received with orders surpassing 2000 copies.  Do make sure to get
- your copy of the <i><a href='Introduction.pdf'><font color='DarkRed'>Introduction to Sing to the Lord</font></a>.</i>
+ well-received with orders surpassing 2000 copies.
  </p>
 
 <p>

@@ -178,21 +178,16 @@ class output:
 
 <ul>
 <li class="background1"><a href="Start.htm">Hymnal homepage</a></li>
-
 <li class="background1"><a href="Songs.htm">Brief info on songs</a></li>
-
 <li class="background1"><a href="Psalms.htm">Browse psalms</a></li>
-
 <li class="background1"><a href="Hymns.htm">Browse hymns</a></li>
-
+<li class="background1"><a href="Musicians.htm">Musicians page</a></li>
 <li class="background1"><a href="Contributions.htm">Contribute</a></li>
 </ul>
 
 <ul>
 <li class="background5"><a href="http://rcnz.org.nz">RCNZ Homepage</a></li>
-
 <li class="background5"><a href="http://hymnal.ws/trac">Committee Login</a></li>
-
 </ul>
 
 <ul>
@@ -212,15 +207,10 @@ class output:
     # ()
     submenu = """<div id="subMenu">
 <div class="corner TL"></div>
-
 <div class="corner TR"></div>
-
 <div class="corner BR"></div>
-
 <div class="corner BL"></div>
-
 <div class="connector"></div>
-
 <div class="container"><a href="Psalms.htm">Browse psalms</a><a href="Hymns.htm">Browse hymns</a></div>
 </div>
 """
