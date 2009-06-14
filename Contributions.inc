@@ -3,17 +3,16 @@
 <p>
  We have had a number of submissions and these have been very valuable.  Some have suggested just one song, while others have pointed us to a
 number of songs.  A number of people have helpfully provided feedback in the form of corrections, complaints or recommendations of specific
-wordings or music.  Such specific feedback has been valuable to us.  Send your 
-<a href='mailto:berwyn@hymnal.ws?subject=NZPH%20Feedback&amp;body=Person/Group%20submitting%20this%20feedback:%20
-%0D%0A%0D%0ASong(s)%20you%20are%20commenting%20about:%20%
-0D%0A%0D%0AComment%20and%20reasons:
-%0D%0A%0D%0A%0D%0A%0D%0AIf%20you%20do%20not%20like%20this%20song,%20give%20a%20suitable%20alternative:
-%0D%0A'>feedback here</a>.
-
+wordings or music.  Such specific feedback has been valuable to us.  Send your feedback to
+<a href="email%3Fe=admin"
+onmouseover="e=&quot;admin&quot;+String.fromCharCode(64)+&quot;hymnal.ws?subject=NZPH%20Feedback&amp;body=Songs you are commenting about:%0D%0A%0D%0AComments and reasons:%0D%0A%0D%0A%0D%0AGive alternatives:%0D%0A&quot;; this.href=&quot;mai&quot;+&quot;lto:&quot;+e;">
+Berwyn Hoyt (secretary & webmaster)</a>
 </p>
 
 <p>
- One <b>very easy</b> way for you to contribute is to help get the word around by emailing a link to this website to your church friends. Click <a href="mailto:friend?subject=New%20Zealand%20Psalter%20Hymnal%20Website?&amp;body=Look%20at%20this:%20http://hymnal.rcnz.org.nz">mailto:friend</A>
+ One <b>very easy</b> way for you to contribute is to help get the word around by emailing a link to this website to your church friends. Click <a href="mailto:friend?subject=New%20Zealand%20Psalter%20Hymnal%20Website?&amp;body=Look%20at%20this:%20http://
+
+hymnal.rcnz.org.nz">mailto:friend</A>
 </p>
 
 <p>
