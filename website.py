@@ -147,7 +147,9 @@ class output:
     psalmtext = """<h1>Psalms</h1>
         <p>You can also download
         <a href='Songs/slides/slides.zip'>all the powerpoint slides in a zip file</a>
-        (also see <a href="Projection.htm">projection permissions</a>).</p>"""
+        (also see <a href="Projection.htm">projection permissions</a>). And a
+        <a href="Sing to the Lord - provisional - web.pdf">web version of the book</a>
+        is available in pdf format that omits some songs for copyright reasons.</p>"""
 
     # (title, id, mainmenu, submenu)
     header = """<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
