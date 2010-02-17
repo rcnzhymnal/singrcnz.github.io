@@ -30,7 +30,8 @@
 
 <li>Lydia Nugteren (typesetting)</li>
 
+<li>Leslie Pijpker (typesetting)</li>
+
 <li>Rebekah de Ruiter (typesetting)</li>
 
-<li>Pieter van der Wel (proofing)</li>
 </ul>
