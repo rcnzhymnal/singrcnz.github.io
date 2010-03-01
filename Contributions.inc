@@ -5,8 +5,7 @@
 number of songs.  A number of people have helpfully provided feedback in the form of corrections, complaints or recommendations of specific
 wordings or music.  Such specific feedback has been valuable to us.  Send your feedback to
 <a href="email%3Fe=admin"
-onmouseover="e=&quot;admin&quot;+String.fromCharCode(64)+&quot;hymnal.ws?subject=NZPH%20Feedback&amp;body=Songs you are commenting about:%0D%0A%0D%0AComments and reasons:%0D%0A%0D%0A%0D%0AGive alternatives:%0D%0A&quot;; this.href=&quot;mai&quot;+&quot;lto
-:&quot;+e;">
+onmouseover="e=&quot;admin&quot;+String.fromCharCode(64)+&quot;hymnal.ws?subject=NZPH%20Feedback&amp;body=Songs you are commenting about:%0D%0A%0D%0AComments and reasons:%0D%0A%0D%0A%0D%0AGive alternatives:%0D%0A&quot;; this.href=&quot;mai&quot;+&quot;lto:&quot;+e;">
 Elrike Hoyt (administrator)</a>
 </p>
 
