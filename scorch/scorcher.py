@@ -104,7 +104,7 @@ bgcolor="#003399">&nbsp; </td>
 <td bgcolor="#FF9900">&nbsp;</td>
     <td>&nbsp;</td>
     <td nowrap>
-If you can't see the score properly then <a href="http://www.sibelius.com/scorch/">get
+If you can't see the score properly then <a href="http://hymnal.ws/scorch">download
 the Sibelius Scorch plug-in here</a>.</td>
 
 </tr>
