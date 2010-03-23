@@ -1,0 +1,19 @@
+$cdheader
+
+<h3><a href='Restoring Psalm Singing to our worship.pdf'>Restoring Psalm Singing to our Worship</a></h3>
+<strong>by Terry Johnson</strong>
+
+<p>
+<a href='Restoring Psalm Singing to our worship.pdf'>This article</a> was 
+taken from <i>Give Praise to God</i>, ISBN 
+978-0-87552-553-2 Chapter 11, by Terry Johnson pages 257-286 published by 
+<a href='http://www.prpbooks.com'>P&amp;R Publishing Co.</a>, PO Box 817, 
+Phillipsburg NJ, USA 08865 </p>
+
+<p>
+P&amp;R&rsquo;s New Zealand distributor is <a 
+href='http://www.clcaustralia.org'>CLC Australasia Ltd</a>, 37 Dalton St., 
+PO Box 469, Kippa Ring 4021, Queensland, Australia </p>
+
+<p>
+ Used by the gracious permission of both the publisher and the author. </p>
