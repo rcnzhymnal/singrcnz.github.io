@@ -23,9 +23,11 @@ and <a href='Report to Synod 2008.pdf'>2008</a>)
 $update
 
 <p>
- <b><font color='Red'>New!</font></b> Check out our new page of
- <a href='Musicians.htm'>resources for musicians</a>.
- </p>
+ <b><font color='Red'>New!</font></b> Check out this new <strong><a href='Restoring Psalm 
+Singing to our worship.pdf'>article on biblical songs</a></strong> showing how 
+they are satisfying both emotionally and doctrinally.<sup>[<a 
+title='&ldquo;Give Praise to God&rdquo;, P&amp;R' href='ArticleCredits.htm'>credits</a>]</sup>
+</p>
 
 <p>
  In October 2008, we saw the arrival of the provisional
