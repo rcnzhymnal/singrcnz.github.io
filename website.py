@@ -4,12 +4,13 @@ import os, sys, time
 Cd = False              # Whether --cd option is given to produce CD files
 Ext = 'sib'
 Songdir = 'Songs'
+Hymndir = 'Hymns'
 Pptdir = 'Songs/slides'
 Pdfdir = 'Songs/Psalms and Hymns PDF'
 Partsdir = 'Songs/parts/'
 Types = ['psalm', 'Hymn']
 Stats = ['coming', 'withheld', 'proofed']
-Ignore = ['Psalm Template.sib', 'sample---unprintable.sib']  # Files to ignore
+Ignore = ['Psalm Template.sib', 'sample---unprintable.sib', 'Hymn Template.sib']  # Files to ignore
 IncludeExt = 'inc'
 Templates = [ f.rsplit('.', 1)[0] for f in glob('*.inc') ]
 
@@ -37,9 +38,9 @@ def normtype(typ):
     return typ
 
 def filename2name(filename, folder):
-    """ Given a single filename, with possible 'typ', '.status' and '.sib'
-        prefixes/suffixes, return num_name.
-        Strips possible directory prefix, and typ, .status, .sib
+    """ Given a single filename, with possible 'typ' prefix (psalm/hymn) and
+        possible suffix (.coming, .withheld, .proofed), return number_name.
+        Strips possible directory prefix and typ and .coming, .withheld, .proofed
     """
     filename = os.path.split(filename)[1]
     for typ in Types:
@@ -78,7 +79,10 @@ class Song(object):
     title = ''
     folder = ''     # directory this song is in
     def __init__(self, name, folder=Songdir):
+        oldname = name
         name = normalize(name, folder)
+        if name == None:
+            raise Exception("problem normalizing file %s (spaces, perhaps?)" % oldname)
         self.folder = folder
         filename = glob(os.path.join(self.folder, '*%s.sib') % name)[0]
         self.file = os.path.split(filename)[1].rsplit('.', 1)[0]
@@ -109,7 +113,7 @@ class Song(object):
         for dot in dotnames:
             dot = filename2name(dot, folder)
             if dot not in songs: songs += [dot]
-        return [ Song(song) for song in songs ]
+        return [ Song(song, folder) for song in songs ]
 
     def checkfile(self, ext, folder=None):
         """ Check that the file of type 'ext' corresponding to this song exists
@@ -140,10 +144,9 @@ class output:
     # (link, clickme, SATB, typ, num, title, filelinks)
     viewable = """<tr><td><a href="%s.htm">%s</a></td><td>%s</td><td><b>%s %s</b>&nbsp;&nbsp;<i>%s</i></td><td>%s</td></tr>\n"""
 
-    hymntext = """<h1>Hymns</h1>
-        $update
-        <p>The only hymns listed here are ones that were associated with a psalm
-        but we decided to put them in as a hymn.</p>"""
+    hymntext1 = """<h1>Hymns Based on Psalms</h1>"""
+    hymntext2 = """<h1>Hymns</h1>
+        $update"""
     psalmtext = """<h1>Psalms</h1>
         <p>You can also download
         <a href='Songs/slides/slides.zip'>all the powerpoint slides in a zip file</a>
@@ -233,9 +236,9 @@ class output:
 
 
     @classmethod
-    def listing(cls, song):
+    def listing(cls, song, folder):
         parts = cls.parts(song)
-        link = urljoin(path2url(Songdir), song.file)
+        link = urljoin(path2url(folder), song.file)
         clickme = 'view/play'
 
         files = []
@@ -261,9 +264,12 @@ class output:
         return cls.viewable % (link, clickme, parts, song.type.capitalize(), song.num.lstrip('0'), song.title, files)
 
     @classmethod
-    def listsongs(cls, typ, toptext):
-        out = output.header % (typ.capitalize()+'s', typ, output.mainmenu, output.submenu)
-        out += toptext
+    def listsongs_top(cls, typ):
+        return output.header % (typ.capitalize()+'s', typ, output.mainmenu, output.submenu)
+
+    @classmethod
+    def listsongs(cls, typ):
+        out = ''
         songs = Song.all(typ)
         out += '<table class="songs">'
         num = 1
@@ -272,9 +278,30 @@ class output:
             try: num = int(s.num)
             except ValueError: num = 0
             if num%10 == 0 and num != 0: out += '<tr><td style="border:none"><br /></td></tr>\n'
-            out += cls.listing(s)
+            out += cls.listing(s, Songdir)
         out += '</table>'
+        return out
+
+    @classmethod
+    def listpsalms(cls, typ, toptext):
+        out = cls.listsongs_top(typ)
+        out += toptext
+        out += cls.listsongs(typ)
         out += output.footer
+        return out
+
+    @classmethod
+    def listhymns(cls, typ):
+        out = ''
+        songs = Song.all(typ, Hymndir)
+        out += '<table class="songs">'
+        num = 0
+        for s in songs:
+            print >>sys.stderr, s.name
+            if num%10 == 0 and num != 0: out += '<tr><td style="border:none"><br /></td></tr>\n'
+            num = num+1
+            out += cls.listing(s, Hymndir)
+        out += '</table>'
         return out
 
     @classmethod
@@ -321,9 +348,15 @@ def main():
 
 
     f = file('Psalms.htm', 'w')
-    print >>f, output.listsongs('psalm', output.psalmtext)
+    print >>f, output.listpsalms('psalm', output.psalmtext)
     f = file('Hymns.htm', 'w')
-    print >>f, output.listsongs('hymn', output.hymntext.replace('$update', update).replace('$page','Hymns.htm'))
+
+    print >>f, output.listsongs_top('hymn')
+    print >>f, output.hymntext1
+    print >>f, output.listsongs('hymn')
+    print >>f, output.hymntext2.replace('$update', update).replace('$page','Hymns.htm')
+    print >>f, output.listhymns('hymn')
+    print >>f, output.footer
 
     for t in Templates:
         f = file(t+'.htm', 'w')
