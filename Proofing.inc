@@ -1,0 +1,10 @@
+
+<title>Browse Hymns</title>
+
+
+<h2>Proofing</h2>
+
+<p>
+ Some songs are listed as undergoing proof reading.  When they have been fully proofed
+they will be released on this website. </p>
+
