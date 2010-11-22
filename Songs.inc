@@ -1,7 +1,7 @@
-<h2>Songs Done so Far</h2>
+<h2>Song Information</h2>
 
 <p>
- <b>Copyright:</b>      The <a href='Psalms.htm'>Psalms</a> and <a href='Hymns.htm'>hymns</a>
+ <b>Copyright:</b> The <a href='Psalms.htm'>Psalms</a> and <a href='Hymns.htm'>hymns</a>
  available here are <a href='Copyright.htm'>copyright</a>
  and may not be copied except according to these <a
  href='Copyright.htm'>details</a>. Note, however, that publication
@@ -11,14 +11,14 @@
  </p>
 
 <p>
- <b>Projection:</b> Most of the songs may be projected for public singing.
+ <b>Projection:</b> Most of the Psalms may be projected for public singing.
  We hope to be making powerpoint slides of all the songs.
  However, some are subject to this
  <a href='Projection.htm'>special handling</a> and copyright restrictions.
 </p>
 
 <p>
- <b>Viewing:</b>         The first time you click a view/play link, the
+ <b>Viewing:</b> The first time you click a view/play link, the
  bottom of the page will ask you to download a browser plug-in called Scorch
  to play the file.  This plug-in will let you play and sing-along while you
  view the file. <b>Note:</b> If you have the CD that came with the <i>Sing
@@ -27,7 +27,7 @@
  </p>
 
 <p>
- <b>Parts:</b>             We may have included parts that choir singers
+ <b>Parts:</b> For some of the Psalms we have included parts that choir singers
  can play to help learn their part.  Just click on the correct SATB icon
  before the song name (SATB stands for Soprano, Alto, Tenor Bass).  Note
  that these parts are auto-generated from the full-part score, and may
@@ -36,7 +36,7 @@
 </p>
 
 <p>
- <b>Updates:</b>        These song pages will be updated <b>regularly</b>
+ <b>Updates:</b> These song pages will be updated <b>regularly</b>
 as we progress through the project.  Click this link if you wish to provide
 <a href='mailto:berwyn@hymnal.ws?subject=NZPH%20Feedback&amp;body=Person/Group%20submitting%20this%20feedback:%20
 %0D%0A%0D%0ASong(s)%20you%20are%20commenting%20about:%20%
