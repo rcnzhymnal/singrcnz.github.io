@@ -149,8 +149,7 @@ class output:
         $update"""
     psalmtext = """<h1>Psalms</h1>
         <p>You can also download
-        <a href='Songs/slides/slides.zip'>all the powerpoint slides in a zip file</a>
-        (also see <a href="Projection.htm">projection permissions</a>). And a
+        <a href='Projection.htm'>powerpoint slides</a> and a
         <a href="Sing to the Lord - provisional - web.pdf">web version of the book</a>
         is available in pdf format that omits some songs for copyright reasons.</p>"""
 

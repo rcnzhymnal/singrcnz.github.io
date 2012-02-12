@@ -1,9 +1,9 @@
-<h2>Projection of Songs for Public Singing</h2>
+<h1>Projection of Songs for Public Singing</h1>
 
 $update
 
 <p>
- We plan to make <a href='Psalms.htm'>powerpoint slides</a> of all the
+We plan to make powerpoint slides of all the
 songs in this hymnbook project. Below is copyright information that you
 need to know to project these songs for public singing. </p>
 
@@ -13,48 +13,25 @@ need to know to project these songs for public singing. </p>
  <i>Sing to the Lord (provisional)</i>.
 </blockquote>
 
-<p>
- Most of these may be used by anyone free of charge. However, a few of
-these are currently subject to special handling. In particular, the
-following may only be projected if your church holds a CCLI copyright
-licence, and their use must be reported to the <a
-href='http://www.ccli.com/'>CCLI</a> annually. </p>
+<h3>Psalm Projection Slides</h3>
 
 <p>
- <b>May be projected if reported via <a href='http://www.ccli.com/'>CCLI</a>:</b>
- </p>
-
-<blockquote>
- 1b, 5, 6, 7, 13, 14, 25b, 26, 42, 48, 50, 53, 57b, 59, 64,
- 65, 66, 69, 79, 86, 86b, 88, 89 part 1, 94, 102, 103, 108,
- 137b, 143, 144, 154
-</blockquote>
+Almost all of the Psalm slides may be used by the Reformed Churches of 
+New Zealand free of charge: we have either been given permission or, for
+a few, we have paid for it.  You can download the
+<a href='Songs/slides/slides.zip'>Psalm slides here</a>.
+But note that we have not been able to obtain
+permission to project Psalms 57b or 139 at all. </p>
 
 <p>
- In addition, some songs which are not available elsewhere on this website
-for copyright reasons are now available in our <i>Sing to the Lord
-(provisional)</i> psalter. We have not yet received permission to project
-these for public singing. In upcoming months we will be working with
-copyright holders to obtain permission to project these songs also, so
-check back here periodically for updates: </p>
+However, a number of these require special notes to be placed on the slides
+as we have done.  If you make up your own slides, then you will also have to place
+these notes.  Here is the <a href='ProjectionSlideNotes.pdf'>full list of songs
+and special notes</a>. </p>
 
-<p>
- <b>May not yet be projected:</b>
-</p>
+<h3>Hymn Projection Slides</h3>
 
-<blockquote>
- 2, 16b, 21, 27, 37, 39, 52, 60, 78b, 119v41, 119v169, 131, 139, 145, 149, 150
-</blockquote>
+<p>Coming ...</p>
 
-<p>
- <b>All the rest may be projected free of charge.</b>
-</p>
-
-<p>Lists dated $date.</p>
+<p><small>[Updated $date.]</small></p>
 $update
-
-<h3>PowerPoint Slides</h3>
-
-<p>
- <b>Available on the CD</b>
-</p>
