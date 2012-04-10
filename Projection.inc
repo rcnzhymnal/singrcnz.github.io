@@ -21,7 +21,7 @@ New Zealand free of charge: we have either been given permission or, for
 a few, we have paid for it.  You can download the
 <a href='Songs/slides/slides.zip'>Psalm slides here</a>.
 But note that we have not been able to obtain
-permission to project Psalms 57b or 139 at all. </p>
+permission to project Psalms 57b or 139:1-3 at all. </p>
 
 <p>
 Only churches with CCLI licenses can project Psalm 57b, and no-one
