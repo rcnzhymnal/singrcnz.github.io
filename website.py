@@ -148,10 +148,12 @@ class output:
     hymntext2 = """<h1>Hymns</h1>
         $update"""
     psalmtext = """<h1>Psalms</h1>
-        <p>You can also download
-        <a href='Projection.htm'>powerpoint slides</a> and a
-        <a href="Sing to the Lord - provisional - web.pdf">web version of the book</a>
-        is available in pdf format that omits some songs for copyright reasons.</p>"""
+        <p>Below are play-able, pdf, or powerpoint versions of the Psalms.
+        Please note <a href='Projection.htm'>these copyright details for the slides</a>.
+        You can also download the entire book as either a
+        <a href="Sing to the Lord - provisional - web.pdf">single pdf book</a> or as
+        <a href='Projection.htm'>powerpoint slides</a>.
+        Some of the pdf pages are omitted for copyright reasons.</p>"""
 
     # (title, id, mainmenu, submenu)
     header = """<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
