@@ -14,6 +14,8 @@ Ignore = ['Psalm Template.sib', 'sample---unprintable.sib', 'Hymn Template.sib']
 IncludeExt = 'inc'
 Templates = [ f.rsplit('.', 1)[0] for f in glob('*.inc') ]
 
+Warnings = []
+
 def urljoin(*pieces):
     if not pieces: return ''
 
@@ -79,12 +81,18 @@ class Song(object):
     title = ''
     folder = ''     # directory this song is in
     def __init__(self, name, folder=Songdir):
+        global Warnings
         oldname = name
         name = normalize(name, folder)
         if name == None:
             raise Exception("problem normalizing file %s (spaces, perhaps?)" % oldname)
         self.folder = folder
-        filename = glob(os.path.join(self.folder, '*%s.sib') % name)[0]
+        try:
+            filename = glob(os.path.join(self.folder, '*%s.sib') % name)[0]
+        except IndexError:
+            Warnings += ["Warning: skipped song because no .sib file found in '%s' for file '%s'\b" % (self.folder, name)]
+            self.file = None
+            return
         self.file = os.path.split(filename)[1].rsplit('.', 1)[0]
 
         self.type = ''
@@ -113,7 +121,8 @@ class Song(object):
         for dot in dotnames:
             dot = filename2name(dot, folder)
             if dot not in songs: songs += [dot]
-        return [ Song(song, folder) for song in songs ]
+        songs = [ Song(song, folder) for song in songs ]
+        return [ song for song in songs if song.file is not None ]
 
     def checkfile(self, ext, folder=None):
         """ Check that the file of type 'ext' corresponding to this song exists
@@ -374,3 +383,5 @@ if __name__ == '__main__':
         Cd = True
 
     main()
+    print
+    print '\n'.join(Warnings)
