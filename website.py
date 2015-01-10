@@ -7,12 +7,13 @@ Songdir = 'Songs'
 Hymndir = 'Hymns'
 Pptdir = 'Songs/slides'
 Pdfdir = 'Songs/Psalms and Hymns PDF'
+Pdfdir2 = 'Hymns'
 Partsdir = 'Songs/parts/'
 Types = ['psalm', 'Hymn']
 Stats = ['coming', 'withheld', 'proofed']
 Ignore = ['Psalm Template.sib', 'sample---unprintable.sib', 'Hymn Template.sib']  # Files to ignore
-IncludeExt = 'inc'
-Templates = [ f.rsplit('.', 1)[0] for f in glob('*.inc') ]
+IncludeExt = 'tmpl.html'
+Templates = [ f.rsplit('.', 2)[0] for f in glob('*.tmpl.html') ]
 
 Warnings = []
 
@@ -153,16 +154,18 @@ class output:
     # (link, clickme, SATB, typ, num, title, filelinks)
     viewable = """<tr><td><a href="%s.htm">%s</a></td><td>%s</td><td><b>%s %s</b>&nbsp;&nbsp;<i>%s</i></td><td>%s</td></tr>\n"""
 
-    hymntext1 = """<h1>Hymns Based on Psalms</h1>"""
     hymntext2 = """<h1>Hymns</h1>
+        <p>Below are play-able or pdf versions of the Hymns.
+        These also have certain <a href="Copyright.htm">Copyright restrictions</a>.</p>
         $update"""
     psalmtext = """<h1>Psalms</h1>
-        <p>Below are play-able, pdf, or powerpoint versions of the Psalms.
-        Please note <a href='Projection.htm'>these copyright details for the slides</a>.
-        You can also download the entire book as either a
-        <a href="Sing to the Lord - provisional - web.pdf">single pdf book</a> or as
-        <a href='Projection.htm'>powerpoint slides</a>.
-        Some of the pdf pages are omitted for copyright reasons.</p>"""
+        <p>Below are play-able or pdf versions of the Psalms.
+        These also have certain <a href="Copyright.htm">Copyright restrictions</a>.</p>
+        <p>There are also powerpoint projection slides which have
+        <a href='Projection.htm'>these copyright requirements</a>.
+        You can download the entire book as
+        <a href='Projection.htm'>powerpoint slides here</a>.
+        </p>"""
 
     # (title, id, mainmenu, submenu)
     header = """<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
@@ -193,11 +196,11 @@ class output:
 
 <ul>
 <li class="background1"><a href="Start.htm">Hymnal homepage</a></li>
-<li class="background1"><a href="Songs.htm">Brief info on songs</a></li>
 <li class="background1"><a href="Psalms.htm">Browse psalms</a></li>
 <li class="background1"><a href="Hymns.htm">Browse hymns</a></li>
 <li class="background1"><a href="Musicians.htm">Musicians page</a></li>
-<li class="background1"><a href="Contributions.htm">Contribute</a></li>
+<li class="background1"><a href="About.htm">About the hymnal</a></li>
+<li class="background1"><a href="Committee.htm">Contact</a></li>
 </ul>
 
 <ul>
@@ -254,6 +257,7 @@ class output:
         files = []
         if song.checkfile('ppt', Pptdir): files += [cls.link % (urljoin(path2url(Pptdir), song.file+'.ppt'), 'Powerpoint')]
         if song.checkfile('pdf', Pdfdir): files += [cls.link % (urljoin(path2url(Pdfdir), song.file+'.pdf'), 'PDF')]
+        elif song.checkfile('pdf', Pdfdir2): files += [cls.link % (urljoin(path2url(Pdfdir2), song.file+'.pdf'), 'PDF')]
 
         if 'coming' in song.stats:
             parts = ''
@@ -357,16 +361,15 @@ def main():
         copyright = ''
 
 
-    f = file('Psalms.htm', 'w')
-    print >>f, output.listpsalms('psalm', output.psalmtext)
-    f = file('Hymns.htm', 'w')
+    if not '--templates-only' in sys.argv:
+        f = file('Psalms.htm', 'w')
+        print >>f, output.listpsalms('psalm', output.psalmtext)
+        f = file('Hymns.htm', 'w')
 
-    print >>f, output.listsongs_top('hymn')
-    print >>f, output.hymntext1
-    print >>f, output.listsongs('hymn')
-    print >>f, output.hymntext2.replace('$update', update).replace('$page','Hymns.htm')
-    print >>f, output.listhymns('hymn')
-    print >>f, output.footer
+        print >>f, output.listsongs_top('hymn')
+        print >>f, output.hymntext2.replace('$update', update).replace('$page','Hymns.htm')
+        print >>f, output.listhymns('hymn')
+        print >>f, output.footer
 
     for t in Templates:
         f = file(t+'.htm', 'w')
