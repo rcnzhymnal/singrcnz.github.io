@@ -255,9 +255,14 @@ class output:
         clickme = 'view/play'
 
         files = []
-        if song.checkfile('ppt', Pptdir): files += [cls.link % (urljoin(path2url(Pptdir), song.file+'.ppt'), 'Powerpoint')]
+        if song.checkfile('ppt', Pptdir):
+            files += [cls.link % (urljoin(path2url(Pptdir), song.file+'.ppt'), 'Powerpoint')]
+        else:
+            files += ['']
         if song.checkfile('pdf', Pdfdir): files += [cls.link % (urljoin(path2url(Pdfdir), song.file+'.pdf'), 'PDF')]
         elif song.checkfile('pdf', Pdfdir2): files += [cls.link % (urljoin(path2url(Pdfdir2), song.file+'.pdf'), 'PDF')]
+        else:
+            files += ['']
 
         if 'coming' in song.stats:
             parts = ''
@@ -267,15 +272,20 @@ class output:
             parts = ''
             link = 'Withheld'
             clickme = 'withheld'
-            files = files[0:1]
+            files = [file if 'Powerpoint' in file else '' for file in files]
         elif 'proofed' not in song.stats:
             parts = ''
             link = 'Proofing'
             clickme = 'proofing'
 
-        files = '&nbsp;&nbsp;&nbsp;'.join(files)
+        global Warnings
+        if files == [] and not 'withheld' in song.stats:
+            Warnings += ["Warning: pdf missing for %s %s %s" % (song.type, song.num, song.title)]
 
-        return cls.viewable % (link, clickme, parts, song.type.capitalize(), song.num.lstrip('0'), song.title, files)
+        files = '</td><td>'.join(files)
+
+        result = cls.viewable % (link, clickme, parts, song.type.capitalize(), song.num.lstrip('0'), song.title, files)
+        return result
 
     @classmethod
     def listsongs_top(cls, typ):
@@ -288,7 +298,7 @@ class output:
         out += '<table class="songs">'
         num = 1
         for s in songs:
-            print >>sys.stderr, s.name
+            print s.name
             try: num = int(s.num)
             except ValueError: num = 0
             if num%10 == 0 and num != 0: out += '<tr><td style="border:none"><br /></td></tr>\n'
@@ -311,7 +321,7 @@ class output:
         out += '<table class="songs">'
         num = 0
         for s in songs:
-            print >>sys.stderr, s.name
+            print s.name
             if num%10 == 0 and num != 0: out += '<tr><td style="border:none"><br /></td></tr>\n'
             num = num+1
             out += cls.listing(s, Hymndir)
@@ -364,8 +374,8 @@ def main():
     if not '--templates-only' in sys.argv:
         f = file('Psalms.htm', 'w')
         print >>f, output.listpsalms('psalm', output.psalmtext)
-        f = file('Hymns.htm', 'w')
 
+        f = file('Hymns.htm', 'w')
         print >>f, output.listsongs_top('hymn')
         print >>f, output.hymntext2.replace('$update', update).replace('$page','Hymns.htm')
         print >>f, output.listhymns('hymn')
@@ -387,4 +397,4 @@ if __name__ == '__main__':
 
     main()
     print
-    print '\n'.join(Warnings)
+    print >>sys.stderr, '\n'.join(Warnings)
