@@ -5,7 +5,7 @@ Cd = False              # Whether --cd option is given to produce CD files
 Ext = 'sib'
 Songdir = 'Songs'
 Hymndir = 'Hymns'
-Pptdir = 'Songs/slides'
+Pptdir = 'slides'
 Pdfdir = 'Songs/Psalms and Hymns PDF'
 Pdfdir2 = 'Hymns'
 Partsdir = 'Songs/parts/'
@@ -107,7 +107,7 @@ class Song(object):
             for stat in Stats:
                 if f.endswith('.' + stat): self.stats += [stat]
         self.name = name.split('_', 1)[1]
-        self.num = name.split('_', 1)[0]
+        self.num = name.split('_', 1)[0].split('-', 1)[0]
         self.title = self.name.replace('_', ' ')
 
     @classmethod
@@ -160,12 +160,7 @@ class output:
         $update"""
     psalmtext = """<h1>Psalms</h1>
         <p>Below are play-able or pdf versions of the Psalms.
-        These also have certain <a href="Copyright.htm">Copyright restrictions</a>.</p>
-        <p>There are also powerpoint projection slides which have
-        <a href='Projection.htm'>these copyright requirements</a>.
-        You can download the entire book as
-        <a href='Projection.htm'>powerpoint slides here</a>.
-        </p>"""
+        These also have certain <a href="Copyright.htm">Copyright restrictions</a>.</p>"""
 
     # (title, id, mainmenu, submenu)
     header = """<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
@@ -248,21 +243,38 @@ class output:
         return satb
 
 
+    pdf = None
     @classmethod
     def listing(cls, song, folder):
         parts = cls.parts(song)
         link = urljoin(path2url(folder), song.file)
         clickme = 'view/play'
+        powerpoint_link = cls.link % ('Projection.htm', '<i>Contact</i>')
 
         files = []
-        if song.checkfile('ppt', Pptdir):
-            files += [cls.link % (urljoin(path2url(Pptdir), song.file+'.ppt'), 'Powerpoint')]
+        # workaround for Jessica's different naming scheme
+        strange_nums = {
+            '051b1': '051b',
+            '051b2': '051b',
+            '072+72b': '072b',
+            '119v025b': '119v025-032 b',
+        }
+        if song.num in strange_nums:
+            song.num = strange_nums[song.num]
+        pptfile = glob(os.path.join(Pptdir, song.num + '*.ppt*'))
+
+        if pptfile:
+            files += [cls.link % (pptfile[0], 'Powerpoint')]
         else:
-            files += ['']
-        if song.checkfile('pdf', Pdfdir): files += [cls.link % (urljoin(path2url(Pdfdir), song.file+'.pdf'), 'PDF')]
-        elif song.checkfile('pdf', Pdfdir2): files += [cls.link % (urljoin(path2url(Pdfdir2), song.file+'.pdf'), 'PDF')]
+            files += ['?']
+
+        if song.checkfile('pdf', Pdfdir): cls.pdf = cls.link % (urljoin(path2url(Pdfdir), song.file+'.pdf'), 'PDF')
+        elif song.checkfile('pdf', Pdfdir2): cls.pdf = cls.link % (urljoin(path2url(Pdfdir2), song.file+'.pdf'), 'PDF')
         else:
-            files += ['']
+            global Warnings
+            if 'withheld' not in song.stats:
+                Warnings += ["Warning: pdf missing for %s %s %s; linking to previous pdf instead" % (song.type, song.num, song.title)]
+        files += [cls.pdf]
 
         if 'coming' in song.stats:
             parts = ''
@@ -272,15 +284,11 @@ class output:
             parts = ''
             link = 'Withheld'
             clickme = 'withheld'
-            files = [file if 'Powerpoint' in file else '' for file in files]
+            files = [powerpoint_link if 'Powerpoint' in file else '' for file in files]
         elif 'proofed' not in song.stats:
             parts = ''
             link = 'Proofing'
             clickme = 'proofing'
-
-        global Warnings
-        if files == [] and not 'withheld' in song.stats:
-            Warnings += ["Warning: pdf missing for %s %s %s" % (song.type, song.num, song.title)]
 
         files = '</td><td>'.join(files)
 
