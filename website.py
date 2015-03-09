@@ -268,8 +268,13 @@ class output:
         else:
             files += ['?']
 
-        if song.checkfile('pdf', Pdfdir): cls.pdf = cls.link % (urljoin(path2url(Pdfdir), song.file+'.pdf'), 'PDF')
-        elif song.checkfile('pdf', Pdfdir2): cls.pdf = cls.link % (urljoin(path2url(Pdfdir2), song.file+'.pdf'), 'PDF')
+        if song.checkfile('pdf', Pdfdir):
+            cls.pdf = cls.link % (urljoin(path2url(Pdfdir), song.file+'.pdf'), 'PDF')
+        # hack to handle alternate_layout hymns laid out for web view only
+        elif os.path.exists(os.path.join(Pdfdir2, 'alternate_layout_'+song.file+'.pdf')):
+            cls.pdf = cls.link % (urljoin(path2url(Pdfdir2), 'alternate_layout_'+song.file+'.pdf'), 'PDF')
+        elif song.checkfile('pdf', Pdfdir2):
+            cls.pdf = cls.link % (urljoin(path2url(Pdfdir2), song.file+'.pdf'), 'PDF')
         else:
             global Warnings
             if 'withheld' not in song.stats:
@@ -328,11 +333,15 @@ class output:
         songs = Song.all(typ, Hymndir)
         out += '<table class="songs">'
         num = 0
+        prev = None
         for s in songs:
+            if s.num == prev:       # skip some hymns that are doubled because the second one in the repository is a double-page version
+                continue
             print s.name
             if num%10 == 0 and num != 0: out += '<tr><td style="border:none"><br /></td></tr>\n'
             num = num+1
             out += cls.listing(s, Hymndir)
+            prev = s.num
         out += '</table>'
         return out
 
