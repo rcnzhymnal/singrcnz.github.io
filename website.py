@@ -264,7 +264,7 @@ class output:
         pptfile = glob(os.path.join(Pptdir, song.num + '*.ppt*'))
 
         if pptfile:
-            files += [cls.link % (pptfile[0], 'Powerpoint')]
+            files += [cls.link % (path2url(pptfile[0]), 'Powerpoint')]
         else:
             files += ['?']
 
