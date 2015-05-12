@@ -155,12 +155,16 @@ class output:
     viewable = """<tr><td><a href="%s.htm">%s</a></td><td>%s</td><td><b>%s %s</b>&nbsp;&nbsp;<i>%s</i></td><td>%s</td></tr>\n"""
 
     hymntext2 = """<h1>Hymns</h1>
-        <p>Below are play-able or pdf versions of the Hymns.
-        These also have certain <a href="Copyright.htm">Copyright restrictions</a>.</p>
+        <p>Below are playable or pdf versions of the Hymns.
+        These also have certain <a href="Copyright.htm">Copyright restrictions</a>.
+        You <b>must</b> refer to these restrictions before reproducing copyrighted music or lyrics.
+        </p>
         $update"""
     psalmtext = """<h1>Psalms</h1>
-        <p>Below are play-able or pdf versions of the Psalms.
-        These also have certain <a href="Copyright.htm">Copyright restrictions</a>.</p>"""
+        <p>Below are playable or pdf versions of the Psalms.
+        These also have certain <a href="Copyright.htm">Copyright restrictions</a>.
+        You <b>must</b> refer to these restrictions before reproducing copyrighted music or lyrics.
+        </p>"""
 
     # (title, id, mainmenu, submenu)
     header = """<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
