@@ -72,6 +72,13 @@ def normalize(numorname, folder):
 
     return num2name(numorname, folder)
 
+def np_if_exists(path):
+    """ return no-print path if it exists instead of path """
+    if os.path.exists(path.replace('.pdf', '.np.pdf')):
+        path = path.replace('.pdf', '.np.pdf')
+    return path
+
+
 class Song(object):
     file = ''       # primary .sib file for the given song, excluding directory & extension
     type = ''
@@ -273,12 +280,12 @@ class output:
             files += ['?']
 
         if song.checkfile('pdf', Pdfdir):
-            cls.pdf = cls.link % (urljoin(path2url(Pdfdir), song.file+'.pdf'), 'PDF')
+            cls.pdf = cls.link % (np_if_exists(urljoin(path2url(Pdfdir), song.file+'.pdf')), 'PDF')
         # hack to handle alternate_layout hymns laid out for web view only
         elif os.path.exists(os.path.join(Pdfdir2, 'alternate_layout_'+song.file+'.pdf')):
-            cls.pdf = cls.link % (urljoin(path2url(Pdfdir2), 'alternate_layout_'+song.file+'.pdf'), 'PDF')
+            cls.pdf = cls.link % (np_if_exists(urljoin(path2url(Pdfdir2), 'alternate_layout_'+song.file+'.pdf')), 'PDF')
         elif song.checkfile('pdf', Pdfdir2):
-            cls.pdf = cls.link % (urljoin(path2url(Pdfdir2), song.file+'.pdf'), 'PDF')
+            cls.pdf = cls.link % (np_if_exists(urljoin(path2url(Pdfdir2), song.file+'.pdf')), 'PDF')
         else:
             global Warnings
             if 'withheld' not in song.stats:
