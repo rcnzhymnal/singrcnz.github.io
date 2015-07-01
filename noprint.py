@@ -1,6 +1,6 @@
 import os, glob
 
-psalms = "6 13 25b 26 42 48 50 52 60 64 65 66 69 81b 86b 94 118b 144"   # note: removed 43 because it is on same pdf as 42
+psalms = "5 6 13 25b 26 42 48 50 52 60 64 65 66 69 81b 86b 94 118b 144"   # note: removed 43 because it is on same pdf as 42
 hymns = "178 199 296 328 368 387 472 511 518 521 522"
 
 svnadd = False
