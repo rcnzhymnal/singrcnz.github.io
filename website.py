@@ -1,6 +1,8 @@
 from glob import glob
 import os, sys, time
 
+import projectable
+
 Cd = False              # Whether --cd option is given to produce CD files
 Ext = 'sib'
 Songdir = 'Songs'
@@ -191,7 +193,7 @@ class output:
 %s
 
 %s
-<div id="content">
+<div id="content" class="songlist">
 """
 
     # ()
@@ -274,11 +276,6 @@ class output:
             song.num = strange_nums[song.num]
         pptfile = glob(os.path.join(Pptdir, song.num + '*.ppt*'))
 
-        if pptfile:
-            files += [cls.link % (path2url(pptfile[0]), 'Powerpoint')]
-        else:
-            files += ['?']
-
         if song.checkfile('pdf', Pdfdir):
             cls.pdf = cls.link % (np_if_exists(urljoin(path2url(Pdfdir), song.file+'.pdf')), 'PDF')
         # hack to handle alternate_layout hymns laid out for web view only
@@ -291,6 +288,18 @@ class output:
             if 'withheld' not in song.stats:
                 Warnings += ["Warning: pdf missing for %s %s %s; linking to previous pdf instead" % (song.type, song.num, song.title)]
         files += [cls.pdf]
+
+        if pptfile:
+            files += [cls.link % (path2url(pptfile[0]), 'Powerpoint:')]
+        else:
+            files += ['?']
+
+        status = projectable.status(song.num)
+        if pptfile:
+            if status.facr and status.ccli:
+                files += [cls.link % ("Copyright.htm", "CCLI reqd.")]
+            else:
+                files += [cls.link % ("Copyright.htm", "free to use")]
 
         if 'coming' in song.stats:
             parts = ''
