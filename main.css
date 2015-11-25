@@ -375,6 +375,9 @@ img {
   margin-top: 30px;
   padding-bottom: 30px;
 }
+#content.songlist {
+  width: 530px;
+}
 #content.no-sub-menu {
   top: 236px;
   margin-top: 0;
