@@ -19,9 +19,13 @@ set range12=psalm12[0-9]_*.pdf
 set range13=psalm13[0-3]_*.pdf psalm133b_*.pdf psalm13[4-7]_*.pdf psalm137b_*.pdf psalm13[8-9]_*.pdf psalm139b_*.pdf
 set range14=psalm14[0-5]_*.pdf psalm145b_*.pdf psalm14[6-9]_*.pdf psalm149b_*.pdf psalm150_*.pdf psalm150b_*.pdf
 set ranges=%range00% %range01% %range02% %range03% %range04% %range05% %range06% %range07% %range08% %range09% %range10% %range11% %range12% %range13% %range14% %range15%
-call java -cp * tool.pdf.Merge Title.pdf Copyright.pdf Preface.pdf blankpage.pdf %ranges% Based_on_Psalms.pdf ..\..\Hymns\Hymn*.pdf Copyright_Holders.pdf Index.pdf
+call java -cp * tool.pdf.Merge Title.pdf Copyright.pdf Preface.pdf blankpage.pdf %ranges% Based_on_Psalms.pdf Copyright_Holders.pdf Index.pdf
 
 call java -cp * tool.pdf.Compress Title-m.pdf
 
 rem Restore .np files
 ren *.np.tmp *.pdf
+
+del Title-m.pdf
+ren Title-m-o.pdf "SttL-provisional.pdf"
+echo Created "SttL-provisional.pdf"
