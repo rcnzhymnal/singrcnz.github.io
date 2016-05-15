@@ -15,6 +15,7 @@ move /y SttLfrontpages-m-o.pdf "SttL.pdf" && echo Created "SttL.pdf"
 
 rem Restore 'non-publishable' (.np) files
 ren *.np.tmp *.pdf
+ren ..\..\Hymns\*.np.tmp *.pdf
 
 
 
