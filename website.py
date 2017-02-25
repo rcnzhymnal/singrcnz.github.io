@@ -213,7 +213,7 @@ class output:
 
 <ul>
 <li class="background5"><a href="http://rcnz.org.nz">RCNZ Homepage</a></li>
-<li class="background5"><a href="http://hymnal.ws/trac">Committee Login</a></li>
+<li class="background5"><a href="http://hymnal.rcnz.org.nz/trac">Committee Login</a></li>
 </ul>
 
 <ul>
@@ -376,7 +376,7 @@ def main():
     if Cd:
         update = """
             <p class='alert-message'>Updates of this page will be
-            <a href="http://hymnal.ws/public/$page">available on the web here</a>.</p>
+            <a href="http://hymnal.rcnz.org.nz/public/$page">available on the web here</a>.</p>
             """
         cdheader = """
             <h3>QuickStart</h3>
