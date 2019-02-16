@@ -213,7 +213,7 @@ class output:
 
 <ul>
 <li class="background5"><a href="http://rcnz.org.nz">RCNZ Homepage</a></li>
-<li class="background5"><a href="http://hymnal.rcnz.org.nz/trac">Committee Login</a></li>
+<li class="background5"><a href="login.html">Committee Login</a></li>
 </ul>
 
 <ul>
