@@ -1,6 +1,15 @@
+<!DOCTYPE html>
 <html>
   <body>
-    <script>
+	<!-- Generator polyfill -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/7.4.3/polyfill.min.js"></script>
+    <!-- Promise polyfill -->
+    <script type="text/babel" src="https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.min.js"></script>
+	<!-- Fetch polyfill -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/2.0.4/fetch.min.js"></script>
+	<!-- Transpiled ES6 to ES5 -->
+
+<!-- Below script is IE11-transpiled and IE11 babel-load-checked version of:
       (async () => {
         const response = await fetch('https://api.github.com/repos/singrcnz/public/contents/Songs/');
         const data = await response.json();
@@ -11,6 +20,114 @@
         htmlString += '</ul>';
         document.getElementsByTagName('body')[0].innerHTML = htmlString;
       })()
+ -->
+    <script>
+		"use strict";
+		
+		// Declare function that will do the fetch works 
+		function fetchSongs() {
+
+			function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+			function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+			_asyncToGenerator(
+			/*#__PURE__*/
+			regeneratorRuntime.mark(function _callee() {
+			  var response, data, htmlString, _iteratorNormalCompletion, _didIteratorError, _iteratorError, _iterator, _step, file;
+
+			  return regeneratorRuntime.wrap(function _callee$(_context) {
+				while (1) {
+				  switch (_context.prev = _context.next) {
+					case 0:
+					  _context.next = 2;
+					  return fetch('https://api.github.com/repos/singrcnz/public/contents/Songs/');
+
+					case 2:
+					  response = _context.sent;
+					  _context.next = 5;
+					  return response.json();
+
+					case 5:
+					  data = _context.sent;
+					  htmlString = '<ul>';
+					  _iteratorNormalCompletion = true;
+					  _didIteratorError = false;
+					  _iteratorError = undefined;
+					  _context.prev = 10;
+
+					  for (_iterator = data[Symbol.iterator](); !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+						file = _step.value;
+						htmlString += "<li><a href=\"".concat(file.path.split('\\').pop().split('/').pop(), "\">").concat(file.name, "</a></li>");
+					  }
+
+					  _context.next = 18;
+					  break;
+
+					case 14:
+					  _context.prev = 14;
+					  _context.t0 = _context["catch"](10);
+					  _didIteratorError = true;
+					  _iteratorError = _context.t0;
+
+					case 18:
+					  _context.prev = 18;
+					  _context.prev = 19;
+
+					  if (!_iteratorNormalCompletion && _iterator.return != null) {
+						_iterator.return();
+					  }
+
+					case 21:
+					  _context.prev = 21;
+
+					  if (!_didIteratorError) {
+						_context.next = 24;
+						break;
+					  }
+
+					  throw _iteratorError;
+
+					case 24:
+					  return _context.finish(21);
+
+					case 25:
+					  return _context.finish(18);
+
+					case 26:
+					  htmlString += '</ul>';
+					  document.getElementsByTagName('body')[0].innerHTML = htmlString;
+
+					case 28:
+					case "end":
+					  return _context.stop();
+				  }
+				}
+			  }, _callee, null, [[10, 14, 18, 26], [19,, 21, 25]]);
+			}))();
+		}		
     </script>
+	<script>
+		function tryFetch() {
+		    console.log("Try fetch");
+			// After the page has loaded, babel may still be compiling the fetch library 
+			// We should check that fetch is ready, else try again soon 
+			// After the page has loaded, still wait another second. 
+			if (typeof fetch == "undefined") {
+				setTimeout(tryFetch, 1000);
+			} else {
+			    fetchSongs();
+			}
+		}
+		
+		// Don't run until the browser has finished loading
+		if (document.readyState != 'complete') {
+		    console.log("Register onload");
+			window.onload = tryFetch;
+		} else {
+		    console.log("Direct invoke");
+		    tryFetch();
+		}
+	</script>
   </body>
 </html>
