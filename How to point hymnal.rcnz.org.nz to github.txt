@@ -1,0 +1,7 @@
+See:
+https://help.github.com/en/articles/managing-a-custom-domain-for-your-github-pages-site#configuring-an-apex-domain
+
+In summary:
+ - Get the RCNZ DNS manager to create a DNS A-record to point hymnal.rcnz.org.nz to the IP addresses for github.io
+   (four of them at the time of writing; you can find them by doing nslookup github.io)
+ - In the respository settings tab in github, search for "Custom Domain" and set it to hymnal.rcnz.org.nz
