@@ -210,7 +210,7 @@ class output:
 <li class="background1"><a href="Hymns.htm">Browse hymns</a></li>
 <li class="background1"><a href="Musicians.htm">Musicians page</a></li>
 <li class="background1"><a href="About.htm">About the hymnal</a></li>
-<li class="background1"><a href="Committee.htm">Contact</a></li>
+<li class="background1"><a href="Contacts.htm">Contact</a></li>
 </ul>
 
 <ul>
