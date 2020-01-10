@@ -1,3 +1,5 @@
+#!/usr/bin/env python2
+
 from glob import glob
 import os, sys, time
 
