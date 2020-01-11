@@ -178,23 +178,28 @@ class output:
         </p>"""
 
     # (title, id, mainmenu, submenu)
-    header = """<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+    header = """---
+title: {title}
+redirect_from: /{redirect}
+---
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
 <html>
 
 <head>
-<title>RCNZ Psalter Hymnal: %s</title>
+<title>RCNZ Psalter Hymnal: {title}</title>
 
 <link rel="stylesheet" type="text/css" href="main.css" />
-<body id="%s"><div id="container">
+<body id="{id}"><div id="container">
 <div id="header">
 <div id="header-left"></div>
 
 <div id="header-right"></div>
 </div>
 
-%s
+{mainmenu}
 
-%s
+{submenu}
 <div id="content" class="songlist">
 """
 
@@ -324,7 +329,7 @@ class output:
 
     @classmethod
     def listsongs_top(cls, typ):
-        return output.header % (typ.capitalize()+'s', typ, output.mainmenu, output.submenu)
+        return output.header.format(title=typ.capitalize()+'s', id=typ, mainmenu=output.mainmenu, submenu=output.submenu, redirect=typ.lower()+'s')
 
     @classmethod
     def listsongs(cls, typ):
@@ -370,7 +375,7 @@ class output:
     @classmethod
     def template(cls, fname):
         f = file(fname+'.'+IncludeExt)
-        return cls.header % (fname.capitalize(), fname.lower(), cls.mainmenu, cls.submenu) + f.read() + cls.footer
+        return cls.header.format(title=fname.capitalize(), id=fname.lower(), mainmenu=cls.mainmenu, submenu=cls.submenu, redirect=fname.lower()) + f.read() + cls.footer
 
 def main():
     # define locals to pass into templates
