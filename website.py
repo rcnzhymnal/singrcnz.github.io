@@ -178,12 +178,7 @@ class output:
         </p>"""
 
     # (title, id, mainmenu, submenu)
-    header = """---
-title: {title}
-redirect_from: /{redirect}
----
-
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+    header = """<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
 <html>
 
 <head>
@@ -375,7 +370,11 @@ redirect_from: /{redirect}
     @classmethod
     def template(cls, fname):
         f = file(fname+'.'+IncludeExt)
-        return cls.header.format(title=fname.capitalize(), id=fname.lower(), mainmenu=cls.mainmenu, submenu=cls.submenu, redirect=fname.lower()) + f.read() + cls.footer
+        content = cls.header.format(title=fname.capitalize(), id=fname.lower(), mainmenu=cls.mainmenu, submenu=cls.submenu, redirect=fname.lower()) + f.read() + cls.footer
+        if fname == 'Contacts':
+            yaml = "---\ntitle: Contacts\nredirect_from:\n- /contacts\n- /contact\n---\n"
+            content = yaml + content
+        return content
 
 def main():
     # define locals to pass into templates
