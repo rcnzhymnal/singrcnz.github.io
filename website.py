@@ -163,17 +163,17 @@ class output:
     link = """<a href="%s">%s</a>"""
 
     # (link, clickme, SATB, typ, num, title, filelinks)
-    viewable = """<tr><td><a href="%s.htm">%s</a></td><td>%s</td><td><b>%s %s</b>&nbsp;&nbsp;<i>%s</i></td><td>%s</td></tr>\n"""
+    viewable = """<tr><td><a href="%s">%s</a></td><td>%s</td><td><b>%s %s</b>&nbsp;&nbsp;<i>%s</i></td><td>%s</td></tr>\n"""
 
     hymntext2 = """<h1>Hymns</h1>
         <p>Below are playable or pdf versions of the Hymns.
-        These also have certain <a href="Copyright.htm">Copyright restrictions</a>.
+        These also have certain <a href="Copyright.html">Copyright restrictions</a>.
         You <b>must</b> refer to these restrictions before reproducing copyrighted music or lyrics.
         </p>
         $update"""
     psalmtext = """<h1>Psalms</h1>
         <p>Below are playable or pdf versions of the Psalms.
-        These also have certain <a href="Copyright.htm">Copyright restrictions</a>.
+        These also have certain <a href="Copyright.html">Copyright restrictions</a>.
         You <b>must</b> refer to these restrictions before reproducing copyrighted music or lyrics.
         </p>"""
 
@@ -205,12 +205,12 @@ class output:
 </div>
 
 <ul>
-<li class="background1"><a href="Start.htm">Hymnal homepage</a></li>
-<li class="background1"><a href="Psalms.htm">Browse psalms</a></li>
-<li class="background1"><a href="Hymns.htm">Browse hymns</a></li>
-<li class="background1"><a href="Musicians.htm">Musicians page</a></li>
-<li class="background1"><a href="About.htm">About the hymnal</a></li>
-<li class="background1"><a href="Contacts.htm">Contact</a></li>
+<li class="background1"><a href="Start.html">Hymnal homepage</a></li>
+<li class="background1"><a href="Psalms.html">Browse psalms</a></li>
+<li class="background1"><a href="Hymns.html">Browse hymns</a></li>
+<li class="background1"><a href="Musicians.html">Musicians page</a></li>
+<li class="background1"><a href="About.html">About the hymnal</a></li>
+<li class="background1"><a href="Contacts.html">Contact</a></li>
 </ul>
 
 <ul>
@@ -239,7 +239,7 @@ class output:
 <div class="corner BR"></div>
 <div class="corner BL"></div>
 <div class="connector"></div>
-<div class="container"><a href="Psalms.htm">Browse psalms</a><a href="Hymns.htm">Browse hymns</a></div>
+<div class="container"><a href="Psalms.html">Browse psalms</a><a href="Hymns.html">Browse hymns</a></div>
 </div>
 """
 
@@ -262,9 +262,9 @@ class output:
     @classmethod
     def listing(cls, song, folder):
         parts = cls.parts(song)
-        link = urljoin(path2url(folder), song.file)
+        link = urljoin(path2url(folder), song.file+'.htm')
         clickme = 'view/play'
-        powerpoint_link = cls.link % ('Projection.htm', '<i>Contact</i>')
+        powerpoint_link = cls.link % ('Projection.html', '<i>Contact</i>')
 
         files = []
         # workaround for Jessica's different naming scheme
@@ -299,22 +299,22 @@ class output:
         status = projectable.status(song.num)
         if pptfile:
             if status.facr and status.ccli:
-                files += [cls.link % ("Copyright.htm", "CCLI reqd.")]
+                files += [cls.link % ("Copyright.html", "CCLI reqd.")]
             else:
-                files += [cls.link % ("Copyright.htm", "free to use")]
+                files += [cls.link % ("Copyright.html", "free to use")]
 
         if 'coming' in song.stats:
             parts = ''
-            link = 'Coming'
+            link = 'Coming.html'
             clickme = 'coming'
         elif 'withheld' in song.stats and not Cd:
             parts = ''
-            link = 'Withheld'
+            link = 'Withheld.html'
             clickme = 'withheld'
             files = [powerpoint_link if 'Powerpoint' in file else '' for file in files]
         elif 'proofed' not in song.stats:
             parts = ''
-            link = 'Proofing'
+            link = 'Proofing.html'
             clickme = 'proofing'
 
         files = '</td><td>'.join(files)
@@ -411,23 +411,23 @@ def main():
 
 
     if not '--templates-only' in sys.argv:
-        f = file('Psalms.htm', 'w')
+        f = file('Psalms.html', 'w')
         print >>f, output.listpsalms('psalm', output.psalmtext)
 
-        f = file('Hymns.htm', 'w')
+        f = file('Hymns.html', 'w')
         print >>f, output.listsongs_top('hymn')
-        print >>f, output.hymntext2.replace('$update', update).replace('$page','Hymns.htm')
+        print >>f, output.hymntext2.replace('$update', update).replace('$page','Hymns.html')
         print >>f, output.listhymns('hymn')
         print >>f, output.footer
 
     for t in Templates:
-        f = file(t+'.htm', 'w')
+        f = file(t+'.html', 'w')
         text = output.template(t)
         text = text.replace('$update', update)
         text = text.replace('$cdheader', cdheader)
         text = text.replace('$copyright', copyright)
         text = text.replace('$date', date)
-        text = text.replace('$page', t+'.htm')
+        text = text.replace('$page', t+'.html')
         print >>f, text
 
 if __name__ == '__main__':
