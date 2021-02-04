@@ -296,13 +296,13 @@ class output:
         projectable_status = projectable.status(song.num)
         if pptfile:
             if 'words_withheld' in song.stats and not Cd:
-                files += ['Powerpoint:', cls.link % ('Projection.html', '<i>Contact</i>')]
+                files += ['powerpoint: ', cls.link % ('Projection.html', '<i>contact</i>')]
             else:
                 files += [cls.link % (path2url(pptfile[0]), 'Powerpoint:')]
                 if projectable_status.facr and projectable_status.ccli:
-                    files += [cls.link % ("Copyright.html", "CCLI reqd.")]
+                    files += [cls.link % ("Copyright.html", "CCLI&nbsp;reqd.")]
                 else:
-                    files += [cls.link % ("Copyright.html", "free to use")]
+                    files += [cls.link % ("Copyright.html", "free&nbsp;to&nbsp;use")]
         else:
             files += ['?']
 

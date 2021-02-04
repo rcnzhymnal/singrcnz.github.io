@@ -4,16 +4,16 @@ Book #,SONG ID,SOURCE,Title,Text © admin,CCLI #,Tune © admin,Author,Author's lif
 3,P004,3,"O LORD, how are my foes increased!",Crown and Covenant;,n/a,pd,The Complete Book of Psalms for Singing,1991,MARTYRDOM,"Wilson, Hugh ",1766-1824,,,,,,,,4
 3,P004,3,"O LORD, how are my foes increased!",Ward;,n/a,pd,The Book of Psalms for Singing,1973,MARTYRDOM,"Wilson, Hugh ",1766-1824,,,,,,,,4
 4,P005,4,"O hear my cry, my righteous God",Free Church of Scotland,n/a,pd,Sing Psalms,2003,CHESHIRE,"Este, The Whole Book of Psalmes",1592,,,,,,,,5
-119:1,P153,119:1,Blessed are those of blameless ways,Free Church of Scotland,n/a,pd,Sing Psalms,2003,APPLETON,"Boyce, William ",1710-1779,,,,,,,,154
-119:9,P174,119:9,How can the young keep their life pure?,Free Church of Scotland,n/a,pd,Sing Psalms,2003,DUANE STREET,"Coles, George ",1792-1858,,,,,,,,155
-119:17,P163,119:17,Do good to me,Free Church of Scotland,n/a,pd,Sing Psalms,2003,MARYTON,"Smith, H. Percy ",1825-1898,,,,,,,,156
-119:25,P164,119:25,My soul is laid low     ,Free Church of Scotland,n/a,pd,Sing Psalms,2003,PENTECOST,"Boyd, William ",1847-1928,,,,,,,,157
-119:33,P166,119:33,"Teach me, O LORD",1957,n/a,pd,Psalter Hymnal ,1957,BISHOP,"Holbrook, Joseph P.",1822-1888,,,,,,,,159
-119:41,P167,119:41,May your unfailing love come to me,Free Church of Scotland,n/a,FCS,Sing Psalms,2003,MULCHAICH,"Scott, Isobel ",b. 1942,,,,,,,,160
-119:49,P168,119:49,"LORD, your word to me remember",1957,n/a,pd,Psalter Hymnal,1957,STUTTGART,"Witt, Christian F.",1660-1716,,,"Gauntlett, Henry J. ",1805-1876,,,,161
-119:57,P169,119:57,"Thou art my portion, LORD",1957,n/a,pd,Psalter Hymnal,1957,CARLISLE,"Lockhart, Charles",1745-1815,,,,,,,,162
+119:01:00,P153,119:01:00,Blessed are those of blameless ways,Free Church of Scotland,n/a,pd,Sing Psalms,2003,APPLETON,"Boyce, William ",1710-1779,,,,,,,,154
+119:09:00,P174,119:09:00,How can the young keep their life pure?,Free Church of Scotland,n/a,pd,Sing Psalms,2003,DUANE STREET,"Coles, George ",1792-1858,,,,,,,,155
+119:17:00,P163,119:17:00,Do good to me,Free Church of Scotland,n/a,pd,Sing Psalms,2003,MARYTON,"Smith, H. Percy ",1825-1898,,,,,,,,156
+119:25:00,P164,119:25:00,My soul is laid low     ,Free Church of Scotland,n/a,pd,Sing Psalms,2003,PENTECOST,"Boyd, William ",1847-1928,,,,,,,,157
+119:33:00,P166,119:33:00,"Teach me, O LORD",1957,n/a,pd,Psalter Hymnal ,1957,BISHOP,"Holbrook, Joseph P.",1822-1888,,,,,,,,159
+119:41:00,P167,119:41:00,May your unfailing love come to me,Free Church of Scotland,n/a,FCS,Sing Psalms,2003,MULCHAICH,"Scott, Isobel ",b. 1942,,,,,,,,160
+119:49:00,P168,119:49:00,"LORD, your word to me remember",1957,n/a,pd,Psalter Hymnal,1957,STUTTGART,"Witt, Christian F.",1660-1716,,,"Gauntlett, Henry J. ",1805-1876,,,,161
+119:57:00,P169,119:57:00,"Thou art my portion, LORD",1957,n/a,pd,Psalter Hymnal,1957,CARLISLE,"Lockhart, Charles",1745-1815,,,,,,,,162
 5,P006,5,"LORD Almighty, hear my words",STTL,n/a,FACR,"Rogers, John H.",b. 1951,HOSEA,"Jonkman, Norm ",b. 1944,,,,,,,,6
-6,P007,6,"LORD, chasten not in anger",FACR,726651 added,FACR,"Walhout, Clarence P.",b. 1934,GENEVAN 6,Genevan Psalter,1542,,,"Goudimel, Claude ",c. 1505-1572,,,,7
+6,P007,6,"LORD, chasten not in anger",FACR,n/a for words; 726651 CCLI number added,FACR,"Walhout, Clarence P.",b. 1934,GENEVAN 6,Genevan Psalter,1542,,,"Goudimel, Claude ",c. 1505-1572,,,,7
 6,P007,6,"LORD, chasten not in anger",FACR,n/a,pd,"Walhout, Clarence P.",b. 1934,PLEADING,Genevan Psalter,1542,,,"Slenk, Howard ",b. 1931,,,,7
 7,P008,7,"O LORD my God, my refuge is in you",Free Church of Scotland,n/a,OUP,Sing Psalms,2003,MORESTEAD,"Watson, Sydney ",1903-1991,,,,,,,,8
 8,P009,8,In all the earth,Free Church of Scotland,n/a,pd,Sing Psalms,2003,ST. MATTHEW,"Croft, William ",1678-1727,,,,,,,,9
@@ -664,4 +664,3 @@ Book #,SONG ID,SOURCE,Title,Text © admin,CCLI #,Tune © admin,Author,Author's lif
 89b,P115,89b,"Almighty God, thy lofty throne",1957,n/a,pd,Psalter Hymnal,1957,WINCHESTER NEW,"Musikalisches Handbuch, Hamburg",1690,,,,,,,,115
 95b,P122,95b,"Sing to the LORD, the rock",pd,n/a,pd,"Maynard, Theodore ",1890-1956,PEACE,"Chadwick, George W. ",1854-1931,,,,,,,,122
 98b,P126,98b,Unto GOD our Saviour,1957,n/a,pd,Psalter Hymnal,1957,GOETHE,Anonymous,,,,,,,,,126
-,,,,,,,,,,,,,,,,,,,

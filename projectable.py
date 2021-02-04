@@ -1,5 +1,8 @@
+#!/usr/bin/env python3
 """ Determine how freely projectable a song is from the CCLI spreadsheet (.csv file) """
 
+from builtins import str
+from builtins import next
 import os, sys, csv, collections
 
 CCLI_CSV_FILE = 'CCLI Index Spreadsheet 3-12-13.csv'
@@ -12,12 +15,12 @@ def load_csv(filename):
     songs = {}
     with open(filename) as f:
         reader = csv.reader(f, dialect='excel')
-        reader.next()   # skip first row
+        next(reader)    # skip first row
         for field in reader:
             num, name, text_admin, ccli_no = field[0], field[3], field[4], field[5]
             if name in ['']:
                 continue
-            ccli = 'n/a' in ccli_no.lower()
+            ccli = 'n/a' not in ccli_no.lower()
             facr = 'FACR' in text_admin.upper()
             if not ccli and not facr:
                 continue
@@ -25,7 +28,7 @@ def load_csv(filename):
             sortkey = (num+',').replace(':', ',').replace('part', ',').replace('b', ',').replace('c', ',').split(',')
             sortkey = (int(sortkey[0]),) + tuple(sortkey[1:])
             songs[num] = Song(num, name, ccli, facr, sortkey)
-    ordered = collections.OrderedDict(sorted(songs.items(), key=lambda k: k[1].sortkey))
+    ordered = collections.OrderedDict(sorted(list(songs.items()), key=lambda k: k[1].sortkey))
     return ordered
 
 def status(number):
@@ -40,13 +43,13 @@ def status(number):
 
 if __name__ == '__main__':
     songs = load_csv(CCLI_CSV_FILE)
-    print "CCLI Required FACR songs:"
-    for num, status in songs.iteritems():
+    print("Free to use FACR songs:")
+    for num, status in songs.items():
         if not status.facr or status.ccli:
             continue
-        print "%s: %s" % (num, status)
-    print "Free to use FACR songs:"
-    for num, status in songs.iteritems():
+        print("%s: %s" % (num, status))
+    print("CCLI Required FACR songs:")
+    for num, status in songs.items():
         if not status.facr or not status.ccli:
             continue
-        print "%s: %s" % (num, status)
+        print("%s: %s" % (num, status))
