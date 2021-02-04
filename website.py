@@ -14,7 +14,7 @@ Pdfdir = 'Songs/PsalmsPDF'
 Pdfdir2 = 'Hymns'
 Partsdir = 'Songs/parts/'
 Types = ['psalm', 'Hymn']
-Stats = ['coming', 'withheld', 'proofed']
+Stats = ['coming', 'music_withheld', 'words_withheld', 'proofed']
 Ignore = ['Psalm Template.sib', 'sample---unprintable.sib', 'Hymn Template.sib']  # Files to ignore
 IncludeExt = 'tmpl.html'
 Templates = [ f.rsplit('.', 2)[0] for f in glob('*.tmpl.html') ]
@@ -46,8 +46,8 @@ def normtype(typ):
 
 def filename2name(filename, folder):
     """ Given a single filename, with possible 'typ' prefix (psalm/hymn) and
-        possible suffix (.coming, .withheld, .proofed), return number_name.
-        Strips possible directory prefix and typ and .coming, .withheld, .proofed
+        possible suffix (.coming, .music_withheld, .words_withheld, .proofed), return number_name.
+        Strips possible directory prefix and typ and .coming, .music_withheld, .words_withheld, .proofed
     """
     filename = os.path.split(filename)[1]
     for typ in Types:
@@ -287,7 +287,7 @@ class output:
             cls.pdf = cls.link % (np_if_exists(urljoin(path2url(Pdfdir2), song.file+'.pdf')), 'PDF')
         else:
             global Warnings
-            if 'withheld' not in song.stats:
+            if 'music_withheld' not in song.stats:
                 Warnings += ["Warning: pdf missing for %s %s %s; linking to previous pdf instead" % (song.type, song.num, song.title)]
         files += [cls.pdf]
 
@@ -307,7 +307,7 @@ class output:
             parts = ''
             link = 'Coming.html'
             clickme = 'coming'
-        elif 'withheld' in song.stats and not Cd:
+        elif 'music_withheld' in song.stats and not Cd:
             parts = ''
             link = 'Withheld.html'
             clickme = 'withheld'
