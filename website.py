@@ -264,7 +264,6 @@ class output:
         parts = cls.parts(song)
         link = urljoin(path2url(folder), song.file+'.htm')
         clickme = 'view/play'
-        powerpoint_link = cls.link % ('Projection.html', '<i>Contact</i>')
 
         files = []
         # workaround for Jessica's different naming scheme
@@ -289,19 +288,23 @@ class output:
             global Warnings
             if 'music_withheld' not in song.stats:
                 Warnings += ["Warning: pdf missing for %s %s %s; linking to previous pdf instead" % (song.type, song.num, song.title)]
-        files += [cls.pdf]
+        if ('music_withheld' in song.stats or 'words_withheld' in song.stats) and not Cd:
+            files += ['']
+        else:
+            files += [cls.pdf]
 
+        projectable_status = projectable.status(song.num)
         if pptfile:
-            files += [cls.link % (path2url(pptfile[0]), 'Powerpoint:')]
+            if 'words_withheld' in song.stats and not Cd:
+                files += ['Powerpoint:', cls.link % ('Projection.html', '<i>Contact</i>')]
+            else:
+                files += [cls.link % (path2url(pptfile[0]), 'Powerpoint:')]
+                if projectable_status.facr and projectable_status.ccli:
+                    files += [cls.link % ("Copyright.html", "CCLI reqd.")]
+                else:
+                    files += [cls.link % ("Copyright.html", "free to use")]
         else:
             files += ['?']
-
-        status = projectable.status(song.num)
-        if pptfile:
-            if status.facr and status.ccli:
-                files += [cls.link % ("Copyright.html", "CCLI reqd.")]
-            else:
-                files += [cls.link % ("Copyright.html", "free to use")]
 
         if 'coming' in song.stats:
             parts = ''
@@ -311,7 +314,6 @@ class output:
             parts = ''
             link = 'Withheld.html'
             clickme = 'withheld'
-            files = [powerpoint_link if 'Powerpoint' in file else '' for file in files]
         elif 'proofed' not in song.stats:
             parts = ''
             link = 'Proofing.html'
