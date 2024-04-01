@@ -1,0 +1,31 @@
+# Set the default behavior, in case people don't have core.autocrlf set.
+* text=auto
+
+*.html text
+*.htm text
+*.py text
+*.txt text
+*.bat text
+*.sh text
+*.csv text
+*.reg text
+*.svg text
+*.proofed text
+*_withheld text
+
+*.pdf binary
+*.sib binary
+*.lib binary
+*.doc binary
+*.docx binary
+*.odt binary
+*.ttf binary
+*.ppt binary
+*.pptx binary
+*.xls binary
+*.xlsx binary
+*.msi binary
+*.dmg binary
+*.gif binary
+*.jpg binary
+*.zip binary
