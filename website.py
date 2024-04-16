@@ -2,6 +2,7 @@
 
 from glob import glob
 import os, sys, time
+import re
 
 import projectable
 
@@ -18,16 +19,15 @@ Stats = ['coming', 'music_withheld', 'words_withheld', 'proofed']
 Ignore = ['Psalm Template.sib', 'sample---unprintable.sib', 'Hymn Template.sib']  # Files to ignore
 IncludeExt = 'tmpl.html'
 Templates = [ f.rsplit('.', 2)[0] for f in glob('*.tmpl.html') ]
+Quiet = False
 
 Warnings = []
 
 def urljoin(*pieces):
     if not pieces: return ''
 
-    if pieces[0].startswith('/'): start = True
-    else: start = False
-    if pieces[-1].endswith('/'): end = True
-    else: end = False
+    start = pieces[0].startswith('/')
+    end = pieces[-1].endswith('/')
 
     url = ''
     for p in pieces:
@@ -275,7 +275,17 @@ class output:
         }
         if song.num in strange_nums:
             song.num = strange_nums[song.num]
-        pptfile = glob(os.path.join(Pptdir, song.num + '*.ppt*'))
+
+        # Find .pptx file -- hacky translation of "_PartN" to " part N"
+        match = re.match("psalm"+song.num+"_part([0-9])", song.file, re.IGNORECASE)
+        if match:
+            pptfile = glob(os.path.join(Pptdir, song.num + ' part '+match.group(1)+'*.ppt*'))
+        else:
+            if 'v' in song.num:
+                pptfile = glob(os.path.join(Pptdir, song.num + '*.ppt*'))
+            else:
+                pptfile = glob(os.path.join(Pptdir, song.num + ' *.ppt*'))
+        pptfile.sort()
 
         if song.checkfile('pdf', Pdfdir):
             cls.pdf = cls.link % (np_if_exists(urljoin(path2url(Pdfdir), song.file+'.pdf')), 'PDF')
@@ -333,9 +343,9 @@ class output:
         out = ''
         songs = Song.all(typ)
         out += '<table class="songs">'
-        num = 1
+
         for s in songs:
-            print s.name
+            if not Quiet: print s.name
             try: num = int(s.num)
             except ValueError: num = 0
             if num%10 == 0 and num != 0: out += '<tr><td style="border:none"><br /></td></tr>\n'
@@ -361,7 +371,7 @@ class output:
         for s in songs:
             if s.num == prev:       # skip some hymns that are doubled because the second one in the repository is a double-page version
                 continue
-            print s.name
+            if not Quiet: print s.name
             if num%10 == 0 and num != 0: out += '<tr><td style="border:none"><br /></td></tr>\n'
             num = num+1
             out += cls.listing(s, Hymndir)
@@ -439,8 +449,10 @@ def main():
 if __name__ == '__main__':
     if ('--cd' in sys.argv):
         Cd = True
+    if ('-q' in sys.argv or '--quiet' in sys.argv):
+        Quiet = True
 
     main()
-    print
+    if not Quiet: print
     print >>sys.stderr, '\n'.join(Warnings)
 
