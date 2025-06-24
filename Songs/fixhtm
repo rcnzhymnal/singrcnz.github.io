@@ -1,0 +1,3 @@
+#Make htm files point to .sib files in sib/ subdirectory instead of in the current directory
+find *.htm -exec sed -Ei 's~(param name="src" value=")(psalm.*)([.]sib".*)~\1sib/\2\3~' {} \;
+find *.htm -exec sed -Ei 's~(embed src=")(psalm.*)([.]sib".*)~\1sib/\2\3~' {} \;
