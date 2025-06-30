@@ -1,4 +1,20 @@
 #!/usr/bin/env python3
+# Hymnal website builder: generates html files for all the sibelius songs in the Songs' and Hymns' 'sib' subfolder.
+
+"""
+This script works by finding all .sib files in the Songs folder and then again in the Hymns folder.
+For each file found, it creates a Song object with attribute fields:
+    .file: the filename without path or extension
+    .files: list of existing filenames related to this song without path but with extension
+    .type: ('psalm' or 'Hymn')
+    .stats: list of strings which match Stats ('proofed', 'coming', etc) for which there is a file in the stats folder with a matching extension
+    .name: name of given song taken from the filename but without the hymn+number prefix and without the extension
+    .title: same as name but with underscores changed to space
+    .num: number (text) of the given song
+    .folder: directory this song is in (Hymns or Songs)
+For each Song object, adds it to a table row in Hymns.html or Psalms.html containing a table of songs (Hymns.html or Psalms.html).
+The table entries vary depending on the stats (see above).
+"""
 
 import os
 import sys
@@ -90,10 +106,10 @@ class Song(object):
     type = ''
     files = []      # all the files relevant to this song (except parts), excluding directory, but including extension
     stats = []      # all the statuses relevant to this song
-    name = ''       # name of given song
-    num = ''        # number of the given song
-    title = ''
-    folder = ''     # directory this song is in
+    name = ''       # name of given song taken from the filename but without the hymn+number prefix and without the extension
+    title = ''      # same as name but with underscores changed to space
+    num = ''        # number (text) of the given song
+    folder = ''     # directory this song is in (Hymns or Songs)
     def __init__(self, name, folder=Songdir):
         global Warnings
         oldname = name
@@ -113,10 +129,14 @@ class Song(object):
         for t in Types:
             if self.file.startswith(t): self.type = t
 
+        # Find this Song in /sib subfolder
         self.files = glob(os.path.join(self.folder, 'sib', '*%s*') % name)
         self.files = [ os.path.split(f)[1] for f in self.files ]
+        # Find any matching 'stats' files in the 'stats' directory
+        self.statsfiles = glob(os.path.join(self.folder, 'stats', '*%s*') % name)
+        self.statsfiles = [ os.path.split(f)[1] for f in self.statsfiles ]
         self.stats = []
-        for f in self.files:
+        for f in self.statsfiles:
             for stat in Stats:
                 if f.endswith('.' + stat): self.stats += [stat]
         self.name = name.split('_', 1)[1]
@@ -212,14 +232,14 @@ class output:
             global Warnings
             if 'music_withheld' not in song.stats:
                 Warnings += ["Warning: pdf missing for %s %s %s; linking to previous pdf instead" % (song.type, song.num, song.title)]
-        if ('music_withheld' in song.stats or 'words_withheld' in song.stats) and not Cd:
+        if ('music_withheld' in song.stats or 'words_withheld' in song.stats) and not Args.cd:
             files += ['']
         else:
             files += [cls.pdf]
 
         projectable_status = projectable.status(song.num)
         if pptfile:
-            if 'words_withheld' in song.stats and not Cd:
+            if 'words_withheld' in song.stats and not Args.cd:
                 files += ['Powerpoint: ', templates.link % ('Projection.html', '<i>contact</i>')]
             else:
                 files += [templates.link % (path2url(pptfile[0]), 'Powerpoint:')]
@@ -234,7 +254,7 @@ class output:
             parts = ''
             link = 'Coming.html'
             clickme = 'coming'
-        elif 'music_withheld' in song.stats and not Cd:
+        elif 'music_withheld' in song.stats and not Args.cd:
             parts = ''
             link = 'Withheld.html'
             clickme = 'withheld'
@@ -255,7 +275,7 @@ class output:
     @classmethod
     def listsongs(cls, typ):
         out = ''
-        songs = Song.all(typ)
+        songs = Song.all(typ, Songdir)
         out += '<table class="songs">'
 
         for s in songs:

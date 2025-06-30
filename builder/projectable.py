@@ -42,6 +42,10 @@ def status(number):
     return Songs[number]
 
 if __name__ == '__main__':
+    # If run from the builder directory, move into root directory where the song directories are
+    if os.getcwd().endswith('/builder'):
+        os.chdir('..')
+
     songs = load_csv(CCLI_CSV_FILE)
     print("Free to use FACR songs:")
     for num, status in songs.items():
