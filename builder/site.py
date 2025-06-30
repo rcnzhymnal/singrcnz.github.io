@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-# Hymnal website builder: generates html files for all the sibelius songs in the Songs' and Hymns' 'sib' subfolder.
+# Hymnal website builder: generates html files for all the sibelius songs in the Psalms and Hymns 'sib' subfolders.
 
 """
-This script works by finding all .sib files in the Songs folder and then again in the Hymns folder.
+This script works by finding all .sib files in the Psalms folder and then again in the Hymns folder.
 For each file found, it creates a Song object with attribute fields:
     .file: the filename without path or extension
     .files: list of existing filenames related to this song without path but with extension
@@ -11,7 +11,7 @@ For each file found, it creates a Song object with attribute fields:
     .name: name of given song taken from the filename but without the hymn+number prefix and without the extension
     .title: same as name but with underscores changed to space
     .num: number (text) of the given song
-    .folder: directory this song is in (Hymns or Songs)
+    .folder: directory this song is in (Hymns or Psalms)
 For each Song object, adds it to a table row in Hymns.html or Psalms.html containing a table of songs (Hymns.html or Psalms.html).
 The table entries vary depending on the stats (see above).
 """
@@ -28,12 +28,12 @@ import templates
 import projectable
 
 Ext = 'sib'
-Songdir = 'Songs'
+Songdir = 'Psalms'
 Hymndir = 'Hymns'
 Pptdir = 'slides'
-Pdfdir = 'Songs/pdf'
+Pdfdir = 'Psalms/pdf'
 Pdfdir2 = 'Hymns/pdf'
-Partsdir = 'Songs/parts/'
+Partsdir = 'Psalms/parts/'
 Types = ['psalm', 'Hymn']
 Stats = ['coming', 'music_withheld', 'words_withheld', 'proofed']
 Ignore = ['Psalm Template.sib', 'sample---unprintable.sib', 'Hymn Template.sib']  # Files to ignore
@@ -109,7 +109,7 @@ class Song(object):
     name = ''       # name of given song taken from the filename but without the hymn+number prefix and without the extension
     title = ''      # same as name but with underscores changed to space
     num = ''        # number (text) of the given song
-    folder = ''     # directory this song is in (Hymns or Songs)
+    folder = ''     # directory this song is in (Hymns or Psalms)
     def __init__(self, name, folder=Songdir):
         global Warnings
         oldname = name
@@ -273,7 +273,7 @@ class output:
         return templates.header.format(title=typ.capitalize()+'s', id=typ, mainmenu=templates.mainmenu, submenu=templates.submenu, redirect=typ.lower()+'s')
 
     @classmethod
-    def listsongs(cls, typ):
+    def listpsalms(cls, typ):
         out = ''
         songs = Song.all(typ, Songdir)
         out += '<table class="songs">'
@@ -331,7 +331,7 @@ def main():
 
     if not Args.nosongs:
         with open('Psalms.html', 'w') as f:
-            print(output.listsongs_header('psalm') + templates.psalmtext + output.listsongs('psalm') + templates.footer, file=f)
+            print(output.listsongs_header('psalm') + templates.psalmtext + output.listpsalms('psalm') + templates.footer, file=f)
 
         with open('Hymns.html', 'w') as f:
             hymntext = templates.hymntext.replace('$update', update).replace('$page','Hymns.html')
