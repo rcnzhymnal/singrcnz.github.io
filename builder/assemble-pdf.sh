@@ -67,8 +67,7 @@ java tool.pdf.Merge -append Frontmatter.pdf \
 mv Frontmatter.pdf SttL.pdf
 java tool.pdf.Compress -inplace SttL.pdf
 
-#rm Psalms.pdf Hymns.pdf Indexes.pdf FirstLines.pdf
-
+rm -f Psalms.pdf Hymns.pdf Indexes.pdf FirstLines.pdf
 popd
 mv ../Psalms/pdf/SttL.pdf .
 
