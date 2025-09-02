@@ -53,19 +53,21 @@ cp SttLbackpages2.pdf FirstLines.pdf
 #~ java tool.pdf.Merge -append Title.pdf Copyright.pdf Contents.pdf Prayer.pdf Creeds.pdf Preface.pdf Statement.pdf
 #~ mv Title.pdf SttL.pdf
 
-#The following line instead merges the frontmatter with the contents list already existing in the frontmatter pdf
-cp SttLfrontpages.pdf SttL.pdf
+#The following line instead merges the frontmatter with the contents list already existing in the SttLfrontpages pdf
+#Copy SttLfrontpages.pdf to Frontmatter.pdf because that is what the first element in the contents list will be called.
+cp SttLfrontpages.pdf Frontmatter.pdf
 
-java tool.pdf.Merge -append SttL.pdf \
+java tool.pdf.Merge -append Frontmatter.pdf \
     Psalms.pdf \
     Hymns.pdf \
     FormsandConfessions.pdf \
     Indexes.pdf \
     ../../Hymns/pdf/Guitar.pdf \
     FirstLines.pdf
+mv Frontmatter.pdf SttL.pdf
 java tool.pdf.Compress -inplace SttL.pdf
 
-rm Psalms.pdf Hymns.pdf Indexes.pdf FirstLines.pdf
+#rm Psalms.pdf Hymns.pdf Indexes.pdf FirstLines.pdf
 
 popd
 mv ../Psalms/pdf/SttL.pdf .
