@@ -21,6 +21,7 @@ import sys
 import time
 import re
 import argparse
+import subprocess, shlex
 
 from glob import glob
 
@@ -40,6 +41,11 @@ Ignore = ['Psalm Template.sib', 'sample---unprintable.sib', 'Hymn Template.sib']
 IncludeExt = 'tmpl.html'
 
 Warnings = []
+
+required_version = (3, 5) # required for subprocess.run
+if sys.version_info < required_version:
+    print(f"Python version must be at least {'.'.join(str(s) for s in required_version)} to run this script.")
+    sys.exit(1)
 
 def urljoin(*pieces):
     if not pieces: return ''
@@ -96,7 +102,18 @@ def normalize(numorname, folder):
 
 def np_if_exists(path):
     """ return no-print path if it exists instead of path """
-    if os.path.exists(path.replace('.pdf', '.np.pdf')):
+    no_print = path.replace('.pdf', '.np.pdf')
+    if os.path.exists(no_print):
+        # Regenerate the .np.pdf from the .pdf file to ensure it has print disabled
+        print(" Generating non-printable version:", no_print)
+        args = ('cpdf', '-encrypt', '40bit', 'prohibit', '', '-no-print', path, '-o', no_print)
+        try:
+            subprocess.run(args, check=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+        except subprocess.CalledProcessError as e:
+            print(f"\nError {e.returncode} running command:")
+            print(' '.join(shlex.quote(s) for s in args))
+            print(e.stdout.decode('utf-8'), end='')
+            sys.exit(e.returncode)
         path = path.replace('.pdf', '.np.pdf')
     return path
 
