@@ -100,15 +100,18 @@ def normalize(numorname, folder):
 
     return num2name(numorname, folder)
 
-def run(*args):
-    """ Run program specified by args and return combined stdout/stderr as a string """
-    try:
-        p = subprocess.run(args, check=True, text=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
-    except subprocess.CalledProcessError as e:
-        print(f"\nError {e.returncode} running command:")
+def run(*args, exit_code=False):
+    """ Run program specified by args and return combined stdout/stderr as a string
+         If exit_code is true, return the exit code rather than the string
+    """
+    p = subprocess.run(args, text=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+    if exit_code:
+        return p.returncode
+    if p.returncode:
+        print(f"\nError {p.returncode} running command:")
         print(' '.join(shlex.quote(s) for s in args))
-        print(e.stdout.strip(), end='')
-        sys.exit(e.returncode)
+        print(p.stdout.strip(), end='')
+        sys.exit(p.returncode)
     return p.stdout.strip()
 
 def np_if_exists(path):
@@ -119,9 +122,8 @@ def np_if_exists(path):
         # First check git modified date to see if it needs updating
         np_date = run('git', 'log', '-1', '--format=%cd', '--date=iso', '--', no_print)
         date = run('git', 'log', '-1', '--format=%cd', '--date=iso', '--', path)
-        print(np_date)
-        print(date)
-        if np_date < date:
+        modified = run('git', 'diff', '-s', '--exit-code', path, exit_code=True)
+        if np_date < date or modified:
             print(" Generating non-printable version:", no_print)
             run('cpdf', '-encrypt', '40bit', 'prohibit', '', '-no-print', path, '-o', no_print)
         path = path.replace('.pdf', '.np.pdf')
