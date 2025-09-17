@@ -36,7 +36,7 @@ Pdfdir = 'Psalms/pdf'
 Pdfdir2 = 'Hymns/pdf'
 Partsdir = 'Psalms/parts/'
 Types = ['psalm', 'Hymn']
-Stats = ['coming', 'music_withheld', 'words_withheld', 'proofed']
+Stats = ['coming', 'music_withheld', 'words_withheld', 'proofed', 'single_song.sib']
 Ignore = ['Psalm Template.sib', 'sample---unprintable.sib', 'Hymn Template.sib']  # Files to ignore
 IncludeExt = 'tmpl.html'
 
@@ -95,8 +95,9 @@ def normalize(numorname, folder):
     """
     numorname = numorname.replace(' ', '_')
     song = glob(os.path.join(folder, 'sib', '*%s.sib') % numorname)
+    song_single = glob(os.path.join(folder, 'sib', '*%s.single_song.sib') % numorname)
     dot = glob(os.path.join(folder, 'sib', '*%s.sib.*') % numorname)
-    if song or dot: return numorname
+    if song or song_single or dot: return numorname
 
     return num2name(numorname, folder)
 
@@ -147,7 +148,7 @@ class Song(object):
             raise Exception("problem normalizing file %s (spaces, perhaps?)" % oldname)
         self.folder = folder
         try:
-            filename = glob(os.path.join(self.folder, 'sib', '*%s.sib') % name)[0]
+            filename = (glob(os.path.join(self.folder, 'sib', '*%s.sib') % name) + glob(os.path.join(self.folder, 'sib', '*%s.single_song.sib') % name))[0]
         except IndexError:
             Warnings += ["Warning: skipped song because no .sib file found in '%s' for file '%s'\b" % (self.folder, name)]
             self.file = None
@@ -170,7 +171,7 @@ class Song(object):
                 if f.endswith('.' + stat): self.stats += [stat]
         self.name = name.split('_', 1)[1]
         self.num = name.split('_', 1)[0].split('-', 1)[0]
-        self.title = self.name.replace('_', ' ')
+        self.title = self.name.replace('_', ' ').replace('.single_song.', '.')
 
     @classmethod
     def all(cls, typ=None, folder=Songdir):
@@ -179,6 +180,7 @@ class Song(object):
         if typ is None: typ = ''
         typ = normtype(typ)
         songs = glob(os.path.join(folder, 'sib', '%s*.sib') % (typ))
+        songs = [song.replace('.single_song.', '.') for song in songs]
         dotnames = glob(os.path.join(folder, 'sib', '%s*.sib.*') % (typ))
         songs = sorted([ filename2name(f, folder) for f in songs if (os.path.split(f)[1] not in Ignore) ])
         for dot in dotnames:
@@ -252,9 +254,9 @@ class output:
                 pptfile = glob(os.path.join(Pptdir, song.num + ' *.ppt*'))
         pptfile.sort()
 
-        # hack to handle alternate_layout hymns laid out for web view only
-        if os.path.exists(os.path.join(song.folder, 'pdf', 'alternate_layout_'+song.file+'.pdf')):
-            cls.pdf = templates.link % (np_if_exists(urljoin(song.folder, 'pdf', 'alternate_layout_'+song.file+'.pdf')), 'PDF')
+        # hack to handle .single-song.pdf hymns laid out for web view only
+        if os.path.exists(os.path.join(song.folder, 'pdf', song.file+'.single_song.pdf')):
+            cls.pdf = templates.link % (np_if_exists(urljoin(song.folder, 'pdf', song.file+'.single_song.pdf')), 'PDF')
         elif song.checkfile('pdf'):
             cls.pdf = templates.link % (np_if_exists(urljoin(song.folder, 'pdf', song.file+'.pdf')), 'PDF')
         else:
