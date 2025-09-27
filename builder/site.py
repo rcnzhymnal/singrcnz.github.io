@@ -237,7 +237,6 @@ class output:
         strange_nums = {
             '051b1': '051b',
             '051b2': '051b',
-            '072+72b': '072b',
             '119v025b': '119v025-032 b',
         }
         if song.num in strange_nums:
