@@ -29,7 +29,7 @@ import templates
 import projectable
 
 Ext = 'sib'
-Songdir = 'Psalms'
+Psalmdir = 'Psalms'
 Hymndir = 'Hymns'
 Pptdir = 'slides'
 Pdfdir = 'Psalms/pdf'
@@ -140,7 +140,7 @@ class Song(object):
     title = ''      # same as name but with underscores changed to space
     num = ''        # number (text) of the given song
     folder = ''     # directory this song is in (Hymns or Psalms)
-    def __init__(self, name, folder=Songdir):
+    def __init__(self, name, folder=Psalmdir):
         global Warnings
         oldname = name
         name = normalize(name, folder)
@@ -148,7 +148,8 @@ class Song(object):
             raise Exception("problem normalizing file %s (spaces, perhaps?)" % oldname)
         self.folder = folder
         try:
-            filename = (glob(os.path.join(self.folder, 'sib', '*%s.sib') % name) + glob(os.path.join(self.folder, 'sib', '*%s.single_song.sib') % name))[0]
+            filenames = (glob(os.path.join(self.folder, 'sib', '*%s.single_song.sib') % name) + glob(os.path.join(self.folder, 'sib', '*%s.sib') % name))
+            filename = filenames[0]  # Get the first file found, and make that the single_song version if possible
         except IndexError:
             Warnings += ["Warning: skipped song because no .sib file found in '%s' for file '%s'\b" % (self.folder, name)]
             self.file = None
@@ -174,18 +175,28 @@ class Song(object):
         self.title = self.name.replace('_', ' ').replace('.single_song.', '.')
 
     @classmethod
-    def all(cls, typ=None, folder=Songdir):
+    def all(cls, typ=None, folder=Psalmdir):
         """ Return a list of all songs, whatever status, as a list of num_names
         """
         if typ is None: typ = ''
         typ = normtype(typ)
-        songs = glob(os.path.join(folder, 'sib', '%s*.sib') % (typ))
-        songs = [song.replace('.single_song.', '.') for song in songs]
-        dotnames = glob(os.path.join(folder, 'sib', '%s*.sib.*') % (typ))
+        songs = []
+        for song in glob(os.path.join(folder, 'sib', f'{typ}*.sib')):
+            num = os.path.basename(song).split('_')[0]
+            if song.endswith('.single_song.sib'):
+                song = song.removesuffix('.single_song.sib')
+            else:
+                if glob(os.path.join(folder, 'sib', f'{num}_*.single_song.sib')):
+                    continue
+            if num == 'psalm072b':
+                print(num)
+            songs.append(song)
+        dotnames = glob(os.path.join(folder, 'sib', f'{typ}*.sib.*'))
+        # add any songs that don't yet have a .sib but do have dot-name like .sib.coming
+        for name in dotnames:
+            name = filename2name(dot, folder)
+            if name not in songs: songs.append(name)
         songs = sorted([ filename2name(f, folder) for f in songs if (os.path.split(f)[1] not in Ignore) ])
-        for dot in dotnames:
-            dot = filename2name(dot, folder)
-            if dot not in songs: songs += [dot]
         songs = [ Song(song, folder) for song in songs ]
         return [ song for song in songs if song.file is not None ]
 
@@ -305,15 +316,15 @@ class output:
     @classmethod
     def listpsalms(cls, typ):
         out = ''
-        songs = Song.all(typ, Songdir)
+        songs = Song.all(typ, Psalmdir)
         out += '<table class="songs">'
 
         for s in songs:
-            if not Args.quiet: print(s.name)
+            if not Args.quiet: print(f"{s.num:4s} {s.name}")
             try: num = int(s.num)
             except ValueError: num = 0
             if num%10 == 0 and num != 0: out += '<tr><td style="border:none"><br /></td></tr>\n'
-            out += cls.listing(s, type, Songdir)
+            out += cls.listing(s, type, Psalmdir)
         out += '</table>'
         return out
 
@@ -327,7 +338,7 @@ class output:
         for s in songs:
             if s.num == prev:       # skip some hymns that are doubled because the second one in the repository is a double-page version
                 continue
-            if not Args.quiet: print(s.name)
+            if not Args.quiet: print(f"{s.num:4s} {s.name}")
             if num%10 == 0 and num != 0: out += '<tr><td style="border:none"><br /></td></tr>\n'
             num = num+1
             out += cls.listing(s, typ, Hymndir)
