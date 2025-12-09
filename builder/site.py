@@ -37,7 +37,7 @@ Pdfdir2 = 'Hymns/pdf'
 Partsdir = 'Psalms/parts/'
 Types = ['psalm', 'Hymn']
 Stats = ['coming', 'music_withheld', 'words_withheld', 'proofed', 'single_song.sib']
-Ignore = ['Psalm Template.sib', 'sample---unprintable.sib', 'Hymn Template.sib']  # Files to ignore
+Ignore = ['Psalm Template.sib', 'sample---unprintable.sib', 'Hymn Template.sib', 'psalm006_LORD,_chasten_not_in_anger_with_alt_harm.sib']  # Files to ignore
 IncludeExt = 'tmpl.html'
 
 Warnings = []
